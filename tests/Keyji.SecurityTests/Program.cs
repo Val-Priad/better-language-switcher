@@ -39,6 +39,9 @@ try
 {
     string path = Path.Combine(folder, "settings.json");
     var settings = KeyjiSettings.CreateDefault();
+    Check(settings.ManagedLanguages.Count == 0 && settings.PermanentLanguages.Count == 0 &&
+          settings.PinnedKey is null, "New settings contain a preset language");
+    settings.ManagedLanguages.Add(japanese);
     SettingsService.SaveTo(path, settings);
     settings.ForceHiraganaOnJapanese = false;
     SettingsService.SaveTo(path, settings);

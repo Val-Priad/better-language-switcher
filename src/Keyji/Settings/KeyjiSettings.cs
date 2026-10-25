@@ -53,12 +53,8 @@ public sealed class KeyjiSettings
     /// </summary>
     public bool ForceHiraganaOnJapanese { get; set; } = true;
 
-    /// <summary>Дефолт для первого запуска: японский пресет, он же закреплённый.</summary>
-    public static KeyjiSettings CreateDefault() => new()
-    {
-        ManagedLanguages = new List<LanguageProfile> { LanguagePresets.Japanese },
-        PinnedKey = LanguagePresets.Japanese.ToInstallString(),
-    };
+    /// <summary>Чистый набор без предустановленных языков и закрепления.</summary>
+    public static KeyjiSettings CreateDefault() => new();
 
     /// <summary>Язык уже в наборе? Идентичность — по install-строке (без учёта регистра).</summary>
     public bool Contains(LanguageProfile profile) =>

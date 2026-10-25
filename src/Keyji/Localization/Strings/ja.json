@@ -17,8 +17,7 @@
   "panel.settings.autostartWarning": "Keyji.exe を移動または削除すると自動起動が動作しなくなります",
 
   "catalog.title": "言語を追加",
-  "catalog.empty": "利用可能な言語はすべてセットに追加済みです",
-  "catalog.footnote": "Keyji は言語を自動ではダウンロードしません。「ダウンロード」を押すと Windows の設定が開き、そこで手動でインストールします",
+  "catalog.empty": "インストール済みの言語はすべてセットに追加済みか、システム言語に設定されています",
 
   "confirm.title": "言語のインストール",
   "confirm.cancel": "キャンセル",

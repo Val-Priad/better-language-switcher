@@ -11,9 +11,7 @@ namespace Keyji.Layouts;
 /// <c>HKCU\Control Panel\International\User Profile\&lt;bcp47&gt;</c>, где имена значений
 /// вида <c>&lt;langid&gt;:&lt;profileid&gt; = 1</c> — это в точности install-строки
 /// (<see cref="LanguageProfile.ToInstallString"/>). Отдаёт то, что <b>уже активно</b>
-/// у пользователя; не-активные, но нужные языки (флагманский японский) приходят
-/// отдельно — курируемым пресетом (<see cref="LanguagePresets"/>). Полный каталог
-/// неустановленных не энумерируем (публичного API нет — только deep-link).
+/// у пользователя. Полный каталог неустановленных языков не энумерируем.
 /// </summary>
 public interface IInstalledCatalog
 {

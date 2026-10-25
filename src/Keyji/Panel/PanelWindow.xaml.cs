@@ -505,18 +505,16 @@ public partial class PanelWindow : Window
     }
 
     /// <summary>
-    /// Языки для каталога «+ добавить»: (установленный каталог ∪ курируемая библиотека)
-    /// − набор − постоянные. Дедуп по <b>LangId</b>, а не по install-строке:
-    /// установленный язык не должен всплыть второй раз как «скачать» из-за расхождения строк;
-    /// установленные идут первыми, поэтому у совпавшего LangId побеждает реальная запись.
+    /// Языки для каталога «+ добавить»: только установленные у пользователя профили,
+    /// которые ещё не находятся в наборе или среди постоянных.
     /// </summary>
     private IReadOnlyList<LanguageProfile> GetAvailableToAdd()
     {
-        var seen = new HashSet<ushort>();
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var result = new List<LanguageProfile>();
-        foreach (var lang in _catalog.GetInstalledLanguages().Concat(LanguagePresets.Catalog))
+        foreach (var lang in _catalog.GetInstalledLanguages())
         {
-            if (!seen.Add(lang.LangId))
+            if (!seen.Add(lang.ToInstallString()) || !_service.IsRegisteredOnMachine(lang))
                 continue;
             if (_settings.Contains(lang) || _settings.IsPermanent(lang))
                 continue;

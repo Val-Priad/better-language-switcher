@@ -422,12 +422,6 @@
                                       ItemTemplate="{StaticResource Panel.CatalogRowTemplate}" />
                     </ScrollViewer>
 
-                    <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
-                        <TextBlock Margin="26,11" TextWrapping="Wrap"
-                                   Text="{loc:T catalog.footnote}"
-                                   FontFamily="{StaticResource SpaceMono}" FontSize="11"
-                                   Foreground="{DynamicResource PanelLabelBrush}" />
-                    </Border>
                 </StackPanel>
             </StackPanel>
         </Border>

@@ -17,8 +17,7 @@
   "panel.settings.autostartWarning": "Autostart will break if Keyji.exe is moved or deleted",
 
   "catalog.title": "Add language",
-  "catalog.empty": "All available languages are already in your set",
-  "catalog.footnote": "Keyji doesn't download languages itself — “download” opens Windows Settings, where you install the language manually",
+  "catalog.empty": "All installed languages are already in your set or marked as system languages",
 
   "confirm.title": "Install language",
   "confirm.cancel": "Cancel",
