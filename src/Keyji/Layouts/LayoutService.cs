@@ -33,13 +33,16 @@ public sealed class LayoutService : ILayoutService
         GetActiveLayouts().Any(l => l.LangId == profile.LangId);
 
     public bool EnableLanguage(LanguageProfile profile) =>
-        NativeMethods.InstallLayoutOrTip(profile.ToInstallString(), 0);
+        profile.TryGetInstallString(out string installString) &&
+        NativeMethods.InstallLayoutOrTip(installString, 0);
 
     public bool DisableLanguage(LanguageProfile profile) =>
-        NativeMethods.InstallLayoutOrTip(profile.ToInstallString(), NativeMethods.ILOT_UNINSTALL);
+        profile.TryGetInstallString(out string installString) &&
+        NativeMethods.InstallLayoutOrTip(installString, NativeMethods.ILOT_UNINSTALL);
 
     public bool IsRegisteredOnMachine(LanguageProfile profile) =>
-        profile.IsTip ? IsTipRegistered(profile) : IsKlidRegistered(profile);
+        profile.TryGetInstallString(out _) &&
+        (profile.IsTip ? IsTipRegistered(profile) : IsKlidRegistered(profile));
 
     /// <summary>
     /// TIP присутствует в машинном каталоге CTF: ветка профиля для его LangId.
@@ -71,7 +74,7 @@ public sealed class LayoutService : ILayoutService
     /// <summary>Японский Microsoft IME (LangID 0x0411) — единственный, для кого форсим режим (флагман v0.1).</summary>
     private const ushort JapaneseLangId = 0x0411;
 
-    public void SwitchTo(LanguageProfile profile, IntPtr targetWindow)
+    public void SwitchTo(LanguageProfile profile, IntPtr targetWindow, bool forceHiragana)
     {
         var target = GetActiveLayouts().FirstOrDefault(l => l.LangId == profile.LangId);
         if (target is null || targetWindow == IntPtr.Zero)
@@ -95,7 +98,7 @@ public sealed class LayoutService : ILayoutService
             : $"  таймаут ожидания активации {profile.DisplayName} (0x{profile.LangId:x4})");
 
         // Форс режима — только для японского (флагманский путь).
-        if (profile.LangId == JapaneseLangId)
+        if (forceHiragana && profile.LangId == JapaneseLangId)
             ForceHiragana(targetWindow, targetThread);
     }
 

@@ -2,7 +2,11 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -26,17 +30,19 @@
        Флаги вшиты сюда, чтобы `dotnet publish -c Release -r win-x64` воспроизводимо
        давал один файл без нативных cor3-DLL рядом и без .pdb. Debug не трогаем. -->
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <RestoreLockedMode>true</RestoreLockedMode>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <RuntimeFrameworkVersion>10.0.13</RuntimeFrameworkVersion>
     <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="H.NotifyIcon.Wpf" Version="2.3.0" />
-    <PackageReference Include="WPF-UI" Version="4.3.0" />
+    <PackageReference Include="H.NotifyIcon.Wpf" Version="[2.3.0]" />
+    <PackageReference Include="WPF-UI" Version="[4.3.0]" />
   </ItemGroup>
 
   <!-- Шрифты панели. Build action = Resource: файлы вшиваются в сам .exe

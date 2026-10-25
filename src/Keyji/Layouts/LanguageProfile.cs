@@ -20,6 +20,29 @@ public sealed record LanguageProfile(
     string DisplayName,
     string BcpTag)
 {
+    /// <summary>Only one well-formed KLID or TIP may be passed to InstallLayoutOrTip.</summary>
+    public bool TryGetInstallString(out string installString)
+    {
+        installString = string.Empty;
+        if (LangId == 0 || ProfileId is null)
+            return false;
+
+        if (IsTip)
+        {
+            if (ProfileId.Length != 76 ||
+                !Guid.TryParseExact(ProfileId[..38], "B", out _) ||
+                !Guid.TryParseExact(ProfileId[38..], "B", out _))
+                return false;
+        }
+        else if (ProfileId.Length != 8 || !ProfileId.All(Uri.IsHexDigit))
+        {
+            return false;
+        }
+
+        installString = ToInstallString();
+        return true;
+    }
+
     /// <summary>Строка для InstallLayoutOrTip: "LangID:ProfileId" (langid в hex, 4 знака).</summary>
     public string ToInstallString() => $"{LangId:x4}:{ProfileId}";
 }

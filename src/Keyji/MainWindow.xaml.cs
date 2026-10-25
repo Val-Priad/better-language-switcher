@@ -115,7 +115,7 @@ public partial class MainWindow : FluentWindow
         {
             // Путь тогла из трея: активировать закреплённый и (для JP) форсить хирагану.
             _pendingSwitch = null;
-            _service.SwitchTo(pending, hwnd);
+            _service.SwitchTo(pending, hwnd, _settings.ForceHiraganaOnJapanese);
             _pollWasJp = _service.IsJapaneseActive(hwnd); // после активации — не давать поллеру повторить
             Dispatcher.BeginInvoke(RefreshState);
             return;

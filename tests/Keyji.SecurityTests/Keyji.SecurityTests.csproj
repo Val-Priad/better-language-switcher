@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <!-- The linked production files contain Windows registry methods; this harness never calls them. -->
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Stubs.cs" />
+    <Compile Include="../../src/Keyji/Layouts/LanguageProfile.cs" Link="LanguageProfile.cs" />
+    <Compile Include="../../src/Keyji/Layouts/LanguagePresets.cs" Link="LanguagePresets.cs" />
+    <Compile Include="../../src/Keyji/Layouts/LayoutInfo.cs" Link="LayoutInfo.cs" />
+    <Compile Include="../../src/Keyji/Layouts/ILayoutService.cs" Link="ILayoutService.cs" />
+    <Compile Include="../../src/Keyji/Layouts/LayoutService.cs" Link="LayoutService.cs" />
+    <Compile Include="../../src/Keyji/Settings/KeyjiSettings.cs" Link="KeyjiSettings.cs" />
+    <Compile Include="../../src/Keyji/Settings/SettingsService.cs" Link="SettingsService.cs" />
+    <Compile Include="../../src/Keyji/Startup/AutostartService.cs" Link="AutostartService.cs" />
+  </ItemGroup>
+</Project>

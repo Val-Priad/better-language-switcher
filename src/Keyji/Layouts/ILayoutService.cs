@@ -37,12 +37,12 @@ public interface ILayoutService
 
     /// <summary>
     /// Переключить ввод указанного окна <paramref name="targetWindow"/> на язык, если он в списке,
-    /// и (для японского) форсить хирагану. Цель передаётся явно: клик по трею уводит foreground
+    /// и, если включена настройка, форсить хирагану для японского. Цель передаётся явно: клик по трею уводит foreground
     /// на shell, поэтому <see cref="NativeMethods"/>.GetForegroundWindow в момент действия
     /// указывает не на редактор пользователя — нужно последнее пользовательское окно (трекер).
     /// Best-effort: WM_INPUTLANGCHANGEREQUEST + форс режима на сфокусированном окне целевого потока.
     /// </summary>
-    void SwitchTo(LanguageProfile profile, IntPtr targetWindow);
+    void SwitchTo(LanguageProfile profile, IntPtr targetWindow, bool forceHiragana);
 
     /// <summary>
     /// Активен ли сейчас японский на потоке окна <paramref name="window"/> (по низкому слову HKL).

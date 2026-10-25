@@ -44,8 +44,11 @@ public sealed class InstalledCatalog : IInstalledCatalog
                 if (!TryParseInstallEntry(valueName, out ushort langId, out string profileId, out bool isTip))
                     continue;
 
+                var profile = new LanguageProfile(langId, profileId, isTip, bcpTag, bcpTag);
+                if (!profile.TryGetInstallString(out _))
+                    continue;
                 var displayName = ResolveDisplayName(langId, profileId, isTip, bcpTag);
-                result.Add(new LanguageProfile(langId, profileId, isTip, displayName, bcpTag));
+                result.Add(profile with { DisplayName = displayName });
             }
         }
 
