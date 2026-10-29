@@ -6,20 +6,40 @@ using Keyji.Layouts;
 namespace Keyji.Settings;
 
 /// <summary>
-/// Stores settings in %AppData%\Keyji\settings.json with a last-good backup.
+/// Stores settings in %AppData%\BetLaSwi\settings.json with a last-good backup.
 /// </summary>
 public static class SettingsService
 {
     private static readonly string DirPath =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Keyji");
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BetLaSwi");
+
+    private static readonly string LegacyFilePath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Keyji", "settings.json");
 
     private static readonly string FilePath = Path.Combine(DirPath, "settings.json");
 
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
-    public static bool Exists() => File.Exists(FilePath) || File.Exists(FilePath + ".bak");
+    private static bool ExistsAt(string path) => File.Exists(path) || File.Exists(path + ".bak");
 
-    public static KeyjiSettings Load() => LoadFrom(FilePath);
+    public static bool Exists() => ExistsAt(FilePath) || ExistsAt(LegacyFilePath);
+
+    public static KeyjiSettings Load() => LoadFromPaths(FilePath, LegacyFilePath);
+
+    internal static KeyjiSettings LoadFromPaths(string currentPath, string legacyPath)
+    {
+        if (ExistsAt(currentPath))
+            return LoadFrom(currentPath);
+
+        if (ExistsAt(legacyPath))
+        {
+            var settings = LoadFrom(legacyPath);
+            SaveTo(currentPath, settings);
+            return settings;
+        }
+
+        return KeyjiSettings.CreateDefault();
+    }
 
     internal static KeyjiSettings LoadFrom(string path)
     {

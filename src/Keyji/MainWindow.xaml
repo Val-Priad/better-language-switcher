@@ -8,7 +8,7 @@
                  xmlns:local="clr-namespace:Keyji"
                  xmlns:loc="clr-namespace:Keyji.Localization"
                  mc:Ignorable="d"
-                 Title="Keyji"
+                 Title="BetLaSwi"
                  Height="650" Width="540"
                  MinHeight="420" MinWidth="460"
                  ExtendsContentIntoTitleBar="True"
@@ -21,26 +21,26 @@
          содержимое собрано в WelcomeRoot и гасится при закрытии (show-once, как прежний InfoBar). -->
 
     <ui:FluentWindow.Resources>
-        <!-- Бренд-градиент Keyji (тот же, что у логотипа/трея): используется для gesture-бейджей. -->
+        <!-- Бренд-градиент BetLaSwi (тот же, что у логотипа/трея): используется для gesture-бейджей. -->
         <LinearGradientBrush x:Key="Welcome.BrandBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Offset="0" Color="#F6B23E" />
-            <GradientStop Offset="1" Color="#D9660C" />
+            <GradientStop Offset="0" Color="#0F6CBD" />
+            <GradientStop Offset="1" Color="#0A4F88" />
         </LinearGradientBrush>
 
-        <!-- Бейдж жеста (ПКМ/ЛКМ): бренд-плашка, Space Mono. Stretch → обе плашки в одной
+        <!-- Бейдж жеста (ПКМ/ЛКМ): бренд-плашка, Segoe UI. Stretch → обе плашки в одной
              Auto-колонке принимают ширину самой широкой, описания выравниваются. -->
         <Style x:Key="Welcome.GestureBadge" TargetType="Border">
             <Setter Property="Background" Value="{StaticResource Welcome.BrandBrush}" />
-            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="CornerRadius" Value="6" />
             <Setter Property="Padding" Value="12,7" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
         <Style x:Key="Welcome.GestureTag" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="FontSize" Value="13" />
-            <Setter Property="Foreground" Value="#FFFBF3" />
+            <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="TextAlignment" Value="Center" />
         </Style>
@@ -52,7 +52,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Title="Keyji" />
+        <ui:TitleBar Grid.Row="0" Title="BetLaSwi" />
 
         <!-- Контент может перерасти фиксированную высоту (длинный пикер языков) — прокрутка на
              всякий случай, обычно не появляется. -->
@@ -71,12 +71,13 @@
                            Width="46" Height="46"
                            VerticalAlignment="Center"
                            RenderOptions.BitmapScalingMode="HighQuality" />
-                    <ui:TextBlock Grid.Column="1"
-                                  FontTypography="Title"
-                                  VerticalAlignment="Center"
-                                  TextWrapping="Wrap"
-                                  Margin="16,0,0,0"
-                                  Text="{loc:T welcome.title}" />
+                    <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                        <ui:TextBlock FontTypography="Title" TextWrapping="Wrap"
+                                      Text="{loc:T welcome.title}" />
+                        <ui:TextBlock FontTypography="Caption" Margin="0,4,0,0"
+                                      Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                      Text="A tiny bird. A world of languages." />
+                    </StackPanel>
                 </Grid>
 
                 <!-- Вводный абзац (слит из старых welcome.message + firstrun.subtitle). -->
@@ -156,7 +157,7 @@
         <!-- Трей: иконка = статус закреплённого (три состояния); левый клик тоглит
              закреплённый (или открывает панель без закрепа), ПКМ открывает панель. -->
         <tb:TaskbarIcon x:Name="TrayIcon"
-                        ToolTipText="Keyji"
+                        ToolTipText="BetLaSwi"
                         TrayLeftMouseUp="TrayIcon_OnLeftMouseUp"
                         TrayRightMouseDown="TrayIcon_OnRightMouseDown" />
     </Grid>

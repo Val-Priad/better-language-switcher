@@ -569,7 +569,7 @@ public partial class PanelWindow : Window
             LaunchOnStart.IsChecked = AutostartService.IsEnabled();
             System.Windows.MessageBox.Show(
                 Loc.Get("dialog.autostartFailed", ex.Message),
-                "Keyji", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                "BetLaSwi", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
         }
     }
 
@@ -669,7 +669,7 @@ public partial class PanelWindow : Window
         {
             System.Windows.MessageBox.Show(
                 Loc.Get("dialog.openSettingsFailed", ex.Message),
-                "Keyji", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                "BetLaSwi", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
         }
     }
 
@@ -688,18 +688,6 @@ public partial class PanelWindow : Window
             new DoubleAnimation(0.98, 1, duration) { EasingFunction = ease });
         PopTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.YProperty,
             new DoubleAnimation(-4, 0, duration) { EasingFunction = ease });
-    }
-
-    /// <summary>kj-blink: курсор после вордмарка, шаговая анимация 1s.</summary>
-    protected override void OnSourceInitialized(EventArgs e)
-    {
-        base.OnSourceInitialized(e);
-
-        var blink = new DoubleAnimationUsingKeyFrames { RepeatBehavior = RepeatBehavior.Forever };
-        blink.KeyFrames.Add(new DiscreteDoubleKeyFrame(1, KeyTime.FromTimeSpan(TimeSpan.Zero)));
-        blink.KeyFrames.Add(new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(500))));
-        blink.KeyFrames.Add(new DiscreteDoubleKeyFrame(1, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(1000))));
-        Caret.BeginAnimation(OpacityProperty, blink);
     }
 
     // --- Dismiss ---

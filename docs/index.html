@@ -4,75 +4,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Keyji — a rarely-needed keyboard layout, one click away</title>
+  <title>BetLaSwi — A tiny bird. A world of languages.</title>
   <meta name="description"
-    content="Keyji keeps a rarely-needed keyboard layout one click away in your Windows tray — and out of your Win+Space cycle the rest of the time. Free, open-source, one .exe.">
+    content="BetLaSwi keeps a rarely-needed keyboard layout one click away in your Windows tray — and out of your Win+Space cycle the rest of the time. Free, open-source, one .exe.">
   <link rel="icon" href="assets/landing/mark-color.svg">
 
   <!-- Open Graph (Telegram, Discord, Slack, Facebook, LinkedIn…) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Keyji">
-  <meta property="og:title" content="Keyji — a rarely-needed keyboard layout, one click away">
+  <meta property="og:site_name" content="BetLaSwi">
+  <meta property="og:title" content="BetLaSwi — A tiny bird. A world of languages.">
   <meta property="og:description"
-    content="Keyji keeps a rarely-needed keyboard layout one click away in your Windows tray — and out of your Win+Space cycle the rest of the time. Free, open-source, one .exe.">
+    content="BetLaSwi keeps a rarely-needed keyboard layout one click away in your Windows tray — and out of your Win+Space cycle the rest of the time. Free, open-source, one .exe.">
   <meta property="og:url" content="https://keyji.wellz.dev/">
   <meta property="og:image" content="https://keyji.wellz.dev/assets/landing/og.png">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="2400">
-  <meta property="og:image:height" content="1260">
-  <meta property="og:image:alt" content="Keyji — a rarely-needed keyboard layout, one click away in your Windows tray.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BetLaSwi — A tiny bird. A world of languages. in your Windows tray.">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Keyji — a rarely-needed keyboard layout, one click away">
+  <meta name="twitter:title" content="BetLaSwi — A tiny bird. A world of languages.">
   <meta name="twitter:description"
     content="Keeps a rarely-needed keyboard layout one click away in your Windows tray. Free, open-source, one .exe.">
   <meta name="twitter:image" content="https://keyji.wellz.dev/assets/landing/og.png">
 
   <style>
-    /* ---- Wellz identity: fonts ---- */
-    /* Space Mono (Latin only) — the brand display mono. */
-    @font-face {
-      font-family: "Space Mono";
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-      src: url("assets/fonts/SpaceMono-Regular.ttf") format("truetype");
-    }
-
-    @font-face {
-      font-family: "Space Mono";
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-      src: url("assets/fonts/SpaceMono-Bold.ttf") format("truetype");
-    }
-
-    /* Cascadia Mono (Latin + Cyrillic) — carries the mono voice in RU, where
-     Space Mono has no Cyrillic glyphs. Variable weight 200–700. */
-    @font-face {
-      font-family: "Cascadia Mono";
-      font-weight: 200 700;
-      font-style: normal;
-      font-display: swap;
-      src: url("assets/fonts/CascadiaMono.ttf") format("truetype");
-    }
-
     :root {
-      --wellz-bg: #f7f5f0;
-      --wellz-charcoal: #16130f;
-      --wellz-ink: #18140f;
-      --wellz-amber-400: #f6b23e;
-      --wellz-amber-600: #d9660c;
-      --wellz-amber-solid: #eb9a2e;
-      --wellz-muted: #726a5c;
-      --wellz-mono: "Space Mono", ui-monospace, Menlo, Consolas, "Courier New", monospace;
-    }
-
-    /* RU has no Space Mono Cyrillic — swap the whole mono voice to Cascadia so
-     the language stays internally consistent (Latin brand tokens included). */
-    html[lang="ru"] {
-      --wellz-mono: "Cascadia Mono", ui-monospace, Menlo, Consolas, "Courier New", monospace;
+      --wellz-bg: #f6f6f6;
+      --wellz-charcoal: #1c1c1c;
+      --wellz-ink: #1a1a1a;
+      --wellz-amber-400: #60cdff;
+      --wellz-amber-600: #0f6cbd;
+      --wellz-amber-solid: #0f6cbd;
+      --wellz-muted: #666666;
+      --wellz-mono: "Segoe UI Variable", "Segoe UI", sans-serif;
     }
 
     html,
@@ -83,7 +49,7 @@
 
     #root,
     .keyji-root {
-      background: #16130f;
+      background: #1c1c1c;
     }
 
     .keyji-root * {
@@ -91,7 +57,7 @@
     }
 
     .keyji-root ::selection {
-      background: rgba(246, 178, 62, 0.28);
+      background: rgba(96, 205, 255, 0.28);
     }
 
     .keyji-root a {
@@ -148,8 +114,8 @@
     }
 
     .langtab.on {
-      background: linear-gradient(135deg, #f6b23e, #d9660c);
-      color: #16130f;
+      background: linear-gradient(135deg, #60cdff, #0f6cbd);
+      color: #1c1c1c;
     }
 
     /* ---- hover states (ported from the mockup's style-hover) ---- */
@@ -285,8 +251,8 @@
 
     /* 1 per row */
     .sol-card:hover {
-      border-color: rgba(246, 178, 62, 0.4);
-      background: rgba(246, 178, 62, 0.05);
+      border-color: rgba(96, 205, 255, 0.4);
+      background: rgba(96, 205, 255, 0.05);
     }
 
     .link-soft {
@@ -352,243 +318,243 @@
 <body>
 
   <div class="keyji-root"
-    style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#f7f5f0;background:#16130f;-webkit-font-smoothing:antialiased;overflow-x:hidden;">
+    style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#f6f6f6;background:#1c1c1c;-webkit-font-smoothing:antialiased;overflow-x:hidden;">
 
     <!-- ============ HERO (dark) ============ -->
     <section id="top"
       style="position:relative;overflow:hidden;padding:clamp(56px,9vw,104px) clamp(18px,4vw,40px) clamp(72px,12vw,140px);">
       <div
-        style="position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:min(1100px,120vw);height:640px;background:radial-gradient(circle at 50% 35%,rgba(246,178,62,0.22),rgba(217,102,12,0.06) 42%,transparent 66%);animation:keyjiGlow 7s ease-in-out infinite;pointer-events:none;">
+        style="position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:min(1100px,120vw);height:640px;background:radial-gradient(circle at 50% 35%,rgba(96,205,255,0.22),rgba(15,108,189,0.06) 42%,transparent 66%);animation:keyjiGlow 7s ease-in-out infinite;pointer-events:none;">
       </div>
       <div
         style="position:absolute;top:16px;right:clamp(18px,4vw,40px);z-index:3;display:flex;justify-content:flex-end;">
         <div
-          style="display:inline-flex;border:1px solid rgba(247,245,240,0.16);border-radius:999px;padding:3px;background:rgba(247,245,240,0.04);"
+          style="display:inline-flex;border:1px solid rgba(246,246,246,0.16);border-radius:999px;padding:3px;background:rgba(246,246,246,0.04);"
           role="group" aria-label="Language">
           <button type="button" class="langtab" data-lang-btn="en">EN</button>
           <button type="button" class="langtab" data-lang-btn="ru">RU</button>
         </div>
       </div>
       <div style="position:relative;max-width:920px;margin:0 auto;text-align:center;">
-        <img src="assets/landing/mark-color.svg" alt="Keyji" width="104" height="104"
-          style="animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 18px 40px rgba(217,102,12,0.35));">
+        <img src="assets/landing/mark-color.svg" alt="BetLaSwi" width="104" height="104"
+          style="animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 18px 40px rgba(15,108,189,0.35));">
         <h1 data-i18n="hero.headline"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(30px,6vw,58px);line-height:1.08;letter-spacing:-0.02em;margin:26px auto 0;max-width:22ch;text-wrap:balance;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.08s;">
-          Learning a language shouldn't clutter your keyboard.</h1>
+          A tiny bird. A world of languages.</h1>
         <p data-i18n="hero.subline"
-          style="font-size:clamp(16px,2.2vw,20px);line-height:1.6;color:rgba(247,245,240,0.75);margin:20px auto 0;max-width:52ch;text-wrap:pretty;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.16s;">
+          style="font-size:clamp(16px,2.2vw,20px);line-height:1.6;color:rgba(246,246,246,0.75);margin:20px auto 0;max-width:52ch;text-wrap:pretty;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.16s;">
           Keep a rarely-needed layout one click away — and out of your way the rest of the time.</p>
         <div
           style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:34px;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.24s;">
-          <a href="https://github.com/Wel-lz/Keyji/releases/latest/download/Keyji.exe"
-            style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:15px 30px;border-radius:12px;background:linear-gradient(135deg,#f6b23e,#d9660c);color:#16130f;font-family:var(--wellz-mono);font-size:15px;line-height:1.2;cursor:pointer;box-shadow:0 10px 30px rgba(217,102,12,0.3);text-decoration:none;">
+          <a href="https://github.com/Wel-lz/Keyji/releases/latest"
+            style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:15px 30px;border-radius:12px;background:linear-gradient(135deg,#0f6cbd,#0a4f88);color:#ffffff;font-family:var(--wellz-mono);font-size:15px;line-height:1.2;cursor:pointer;box-shadow:0 10px 30px rgba(15,108,189,0.2);text-decoration:none;">
             <span data-i18n="nav.download" style="font-weight:700;">Download for Windows</span>
           </a>
           <a class="link-soft" href="https://github.com/Wel-lz/Keyji"
-            style="display:inline-flex;align-items:center;gap:6px;padding:4px 6px;background:transparent;border:none;color:rgba(247,245,240,0.5);font-family:var(--wellz-mono);font-weight:700;font-size:13px;">★
+            style="display:inline-flex;align-items:center;gap:6px;padding:4px 6px;background:transparent;border:none;color:rgba(246,246,246,0.5);font-family:var(--wellz-mono);font-weight:700;font-size:13px;">★
             <span data-i18n="nav.star">Like on GitHub</span></a>
         </div>
         <p data-i18n="hero.micro"
-          style="font-family:var(--wellz-mono);font-size:12.5px;letter-spacing:0.06em;color:rgba(247,245,240,0.55);margin-top:26px;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.32s;">
+          style="font-family:var(--wellz-mono);font-size:12.5px;letter-spacing:0.06em;color:rgba(246,246,246,0.55);margin-top:26px;animation:keyjiUp .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.32s;">
           Free · open-source · one file, nothing to install</p>
       </div>
     </section>
 
     <!-- ============ PROBLEM (light) ============ -->
-    <section style="background:#f7f5f0;color:#18140f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#f6f6f6;color:#1a1a1a;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1000px;margin:0 auto;">
         <p data-i18n="problem.eyebrow"
-          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#d9660c;margin:0;">
+          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0f6cbd;margin:0;">
           The problem</p>
         <p data-i18n="problem.intro"
-          style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,42px);line-height:1.12;letter-spacing:-0.02em;color:#18140f;margin:14px 0 0;max-width:20ch;">
+          style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,42px);line-height:1.12;letter-spacing:-0.02em;color:#1a1a1a;margin:14px 0 0;max-width:20ch;">
           You have a layout you only need occasionally</p>
         <h2 data-i18n="problem.title"
-          style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:clamp(16px,2vw,19px);line-height:1.6;color:#4a443b;margin:16px 0 0;max-width:56ch;">
+          style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-weight:400;font-size:clamp(16px,2vw,19px);line-height:1.6;color:#444444;margin:16px 0 0;max-width:56ch;">
           Windows gives you two bad options for it.</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:36px;">
-          <div style="background:#fff;border:1px solid rgba(24,20,15,0.1);border-radius:18px;padding:28px;">
+          <div style="background:#fff;border:1px solid rgba(26,26,26,0.1);border-radius:18px;padding:28px;">
             <div
-              style="display:inline-flex;align-items:center;gap:9px;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#18140f;">
+              style="display:inline-flex;align-items:center;gap:9px;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1a1a1a;">
               <span
-                style="width:26px;height:26px;border-radius:8px;background:rgba(217,102,12,0.12);color:#d9660c;display:inline-flex;align-items:center;justify-content:center;">A</span><span
+                style="width:26px;height:26px;border-radius:8px;background:rgba(15,108,189,0.12);color:#0f6cbd;display:inline-flex;align-items:center;justify-content:center;">A</span><span
                 data-i18n="problem.keepLabel">Keep it</span>
             </div>
-            <p data-i18n="problem.keepBody" style="font-size:16px;line-height:1.55;color:#4a443b;margin:16px 0 0;">It
+            <p data-i18n="problem.keepBody" style="font-size:16px;line-height:1.55;color:#444444;margin:16px 0 0;">It
               clogs your layout-switch cycle every single day — one more stop you tab past to reach the layout you
               actually want.</p>
           </div>
-          <div style="background:#fff;border:1px solid rgba(24,20,15,0.1);border-radius:18px;padding:28px;">
+          <div style="background:#fff;border:1px solid rgba(26,26,26,0.1);border-radius:18px;padding:28px;">
             <div
-              style="display:inline-flex;align-items:center;gap:9px;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#18140f;">
+              style="display:inline-flex;align-items:center;gap:9px;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1a1a1a;">
               <span
-                style="width:26px;height:26px;border-radius:8px;background:rgba(217,102,12,0.12);color:#d9660c;display:inline-flex;align-items:center;justify-content:center;">B</span><span
+                style="width:26px;height:26px;border-radius:8px;background:rgba(15,108,189,0.12);color:#0f6cbd;display:inline-flex;align-items:center;justify-content:center;">B</span><span
                 data-i18n="problem.removeLabel">Remove it</span>
             </div>
-            <p data-i18n="problem.removeBody" style="font-size:16px;line-height:1.55;color:#4a443b;margin:16px 0 0;">You
+            <p data-i18n="problem.removeBody" style="font-size:16px;line-height:1.55;color:#444444;margin:16px 0 0;">You
               re-add it through Settings every time you need it — a multi-click round-trip for a two-minute task.</p>
           </div>
         </div>
         <!-- switch-shortcut → layout cycle diagram (given more breathing room, p2.8) -->
         <div
-          style="margin-top:22px;background:#18140f;border-radius:18px;padding:clamp(28px,4.5vw,42px);color:#f7f5f0;">
+          style="margin-top:22px;background:#1a1a1a;border-radius:18px;padding:clamp(28px,4.5vw,42px);color:#f6f6f6;">
           <div class="pcyc-row" style="display:flex;align-items:center;gap:clamp(16px,3vw,30px);flex-wrap:wrap;">
             <div style="display:flex;flex-direction:column;gap:8px;">
               <span data-i18n="problem.pressLabel"
-                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(247,245,240,0.45);">You
+                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(246,246,246,0.45);">You
                 press</span>
               <span style="display:inline-flex;align-items:center;gap:6px;">
                 <kbd
-                  style="font-family:var(--wellz-mono);font-size:12.5px;background:rgba(247,245,240,0.12);border:1px solid rgba(247,245,240,0.22);border-bottom-width:3px;border-radius:7px;padding:6px 10px;">Win</kbd>
-                <span style="font-family:var(--wellz-mono);font-size:12.5px;color:rgba(247,245,240,0.5);">+</span>
+                  style="font-family:var(--wellz-mono);font-size:12.5px;background:rgba(246,246,246,0.12);border:1px solid rgba(246,246,246,0.22);border-bottom-width:3px;border-radius:7px;padding:6px 10px;">Win</kbd>
+                <span style="font-family:var(--wellz-mono);font-size:12.5px;color:rgba(246,246,246,0.5);">+</span>
                 <kbd
-                  style="font-family:var(--wellz-mono);font-size:12.5px;background:rgba(247,245,240,0.12);border:1px solid rgba(247,245,240,0.22);border-bottom-width:3px;border-radius:7px;padding:6px 10px;">Space</kbd>
+                  style="font-family:var(--wellz-mono);font-size:12.5px;background:rgba(246,246,246,0.12);border:1px solid rgba(246,246,246,0.22);border-bottom-width:3px;border-radius:7px;padding:6px 10px;">Space</kbd>
               </span>
               <span data-i18n="problem.shortcutAlt"
-                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.04em;color:rgba(247,245,240,0.4);">or
+                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.04em;color:rgba(246,246,246,0.4);">or
                 Alt+Shift · Ctrl+Shift</span>
             </div>
             <span class="pcyc-sep" style="color:var(--wellz-amber-solid);font-size:22px;flex:none;">→</span>
             <div
-              style="flex:1;min-width:220px;border:1px solid rgba(247,245,240,0.14);border-radius:14px;padding:16px 18px;background:rgba(247,245,240,0.03);">
+              style="flex:1;min-width:220px;border:1px solid rgba(246,246,246,0.14);border-radius:14px;padding:16px 18px;background:rgba(246,246,246,0.03);">
               <span data-i18n="problem.cycleLabel"
-                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(247,245,240,0.45);">It
+                style="font-family:var(--wellz-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(246,246,246,0.45);">It
                 cycles your layouts</span>
               <div class="pcyc-pills" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;">
                 <span
-                  style="font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(247,245,240,0.08);border:1px solid rgba(247,245,240,0.16);">ENG</span>
-                <span style="color:rgba(247,245,240,0.35);">→</span>
+                  style="font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(246,246,246,0.08);border:1px solid rgba(246,246,246,0.16);">ENG</span>
+                <span style="color:rgba(246,246,246,0.35);">→</span>
                 <span
-                  style="font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(247,245,240,0.08);border:1px solid rgba(247,245,240,0.16);">РУС</span>
-                <span style="color:rgba(247,245,240,0.35);">→</span>
+                  style="font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(246,246,246,0.08);border:1px solid rgba(246,246,246,0.16);">РУС</span>
+                <span style="color:rgba(246,246,246,0.35);">→</span>
                 <span
-                  style="position:relative;font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(246,178,62,0.14);border:1.5px dashed #f6b23e;color:#f6b23e;">日本語<span
+                  style="position:relative;font-family:var(--wellz-mono);font-size:13.5px;padding:8px 15px;border-radius:999px;background:rgba(96,205,255,0.14);border:1.5px dashed #60cdff;color:#60cdff;">日本語<span
                     data-i18n="problem.rareTag"
-                    style="position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;background:#d9660c;color:#16130f;padding:2px 7px;border-radius:6px;font-weight:700;white-space:nowrap;">needed
+                    style="position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;background:#0f6cbd;color:#1c1c1c;padding:2px 7px;border-radius:6px;font-weight:700;white-space:nowrap;">needed
                     weekly</span></span>
-                <span style="color:rgba(247,245,240,0.35);">↺</span>
+                <span style="color:rgba(246,246,246,0.35);">↺</span>
               </div>
             </div>
           </div>
           <p data-i18n="problem.diagramCaption"
-            style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:22px 0 0;">Whatever your switch
+            style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:22px 0 0;">Whatever your switch
             shortcut is, it cycles through every active layout — including the one you touch once a week.</p>
         </div>
       </div>
     </section>
 
     <!-- ============ SOLUTION (dark) ============ -->
-    <section style="background:#16130f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#1c1c1c;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1160px;margin:0 auto;">
         <p data-i18n="solution.eyebrow"
           style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--wellz-amber-solid);margin:0;">
           How it works</p>
         <h2 data-i18n="solution.title"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,42px);line-height:1.12;letter-spacing:-0.02em;margin:14px 0 0;max-width:22ch;">
-          Keyji lives in your tray.</h2>
+          BetLaSwi lives in your tray.</h2>
         <p data-i18n="solution.sub"
-          style="font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(247,245,240,0.75);margin:16px 0 0;max-width:56ch;">
+          style="font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(246,246,246,0.75);margin:16px 0 0;max-width:56ch;">
           A click toggles a rare layout in when you need it, out when you don't.</p>
         <div class="sol-grid" style="margin-top:40px;">
           <div class="sol-card"
-            style="background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:16px;padding:22px;">
+            style="background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:16px;padding:22px;">
             <div
-              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(246,178,62,0.9),rgba(217,102,12,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#16130f;">
+              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(96,205,255,0.9),rgba(15,108,189,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1c1c1c;">
               1</div>
             <h3 data-i18n="solution.b1.title"
               style="font-family:var(--wellz-mono);font-weight:700;font-size:15px;letter-spacing:-0.01em;margin:16px 0 0;">
               One click from the tray</h3>
             <p data-i18n="solution.b1.body"
-              style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:9px 0 0;">Toggle the layout
+              style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:9px 0 0;">Toggle the layout
               without leaving what you're doing.</p>
           </div>
           <div class="sol-card"
-            style="background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:16px;padding:22px;">
+            style="background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:16px;padding:22px;">
             <div
-              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(246,178,62,0.9),rgba(217,102,12,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#16130f;">
+              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(96,205,255,0.9),rgba(15,108,189,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1c1c1c;">
               2</div>
             <h3 data-i18n="solution.b2.title"
               style="font-family:var(--wellz-mono);font-weight:700;font-size:15px;letter-spacing:-0.01em;margin:16px 0 0;">
               Tray status at a glance</h3>
             <p data-i18n="solution.b2.body"
-              style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:9px 0 0;">The icon shows whether
+              style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:9px 0 0;">The icon shows whether
               the layout is in your cycle right now.</p>
           </div>
           <div class="sol-card"
-            style="background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:16px;padding:22px;">
+            style="background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:16px;padding:22px;">
             <div
-              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(246,178,62,0.9),rgba(217,102,12,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#16130f;">
+              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(96,205,255,0.9),rgba(15,108,189,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1c1c1c;">
               3</div>
             <h3 data-i18n="solution.b3.title"
               style="font-family:var(--wellz-mono);font-weight:700;font-size:15px;letter-spacing:-0.01em;margin:16px 0 0;">
               Friendly first-run onboarding</h3>
             <p data-i18n="solution.b3.body"
-              style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:9px 0 0;">A short,
+              style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:9px 0 0;">A short,
               plain-language setup the first time you open it.</p>
           </div>
           <div class="sol-card"
-            style="background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:16px;padding:22px;">
+            style="background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:16px;padding:22px;">
             <div
-              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(246,178,62,0.9),rgba(217,102,12,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#16130f;">
+              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(96,205,255,0.9),rgba(15,108,189,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1c1c1c;">
               4</div>
             <h3 data-i18n="solution.b4.title"
               style="font-family:var(--wellz-mono);font-weight:700;font-size:15px;letter-spacing:-0.01em;margin:16px 0 0;">
               Native &amp; instant</h3>
             <p data-i18n="solution.b4.body"
-              style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:9px 0 0;">Under 100ms. No
+              style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:9px 0 0;">Under 100ms. No
               PowerShell, no scripts, no lag.</p>
           </div>
           <div class="sol-card"
-            style="background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:16px;padding:22px;">
+            style="background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:16px;padding:22px;">
             <div
-              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(246,178,62,0.9),rgba(217,102,12,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#16130f;">
+              style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(96,205,255,0.9),rgba(15,108,189,0.9));display:flex;align-items:center;justify-content:center;font-family:var(--wellz-mono);font-weight:700;font-size:14px;color:#1c1c1c;">
               5</div>
             <h3 data-i18n="solution.b5.title"
               style="font-family:var(--wellz-mono);font-weight:700;font-size:15px;letter-spacing:-0.01em;margin:16px 0 0;">
               One self-contained .exe</h3>
             <p data-i18n="solution.b5.body"
-              style="font-size:14px;line-height:1.5;color:rgba(247,245,240,0.72);margin:9px 0 0;">Nothing to install,
+              style="font-size:14px;line-height:1.5;color:rgba(246,246,246,0.72);margin:9px 0 0;">Nothing to install,
               nothing left behind.</p>
           </div>
         </div>
-        <p style="font-family:var(--wellz-mono);font-size:13.5px;line-height:1.6;color:rgba(247,245,240,0.68);text-align:center;margin:32px auto 0;max-width:62ch;">
+        <p style="font-family:var(--wellz-mono);font-size:13.5px;line-height:1.6;color:rgba(246,246,246,0.68);text-align:center;margin:32px auto 0;max-width:62ch;">
           <span style="color:var(--wellz-amber-solid);font-weight:700;">日本語</span>
-          <span data-i18n="solution.jpNote">Learning Japanese? Flip it on and Keyji drops the IME straight into hiragana — no fumbling out of romaji mode. On by default.</span></p>
+          <span data-i18n="solution.jpNote">Learning Japanese? Flip it on and BetLaSwi drops the IME straight into hiragana — no fumbling out of romaji mode. On by default.</span></p>
       </div>
     </section>
 
     <!-- ============ WHO (light) ============ -->
-    <section style="background:#f7f5f0;color:#18140f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#f6f6f6;color:#1a1a1a;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1080px;margin:0 auto;">
         <p data-i18n="who.eyebrow"
-          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#d9660c;margin:0;">
+          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0f6cbd;margin:0;">
           Who it's for</p>
         <h2 data-i18n="who.title"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,42px);line-height:1.12;letter-spacing:-0.02em;margin:14px 0 0;max-width:20ch;">
           For anyone a rare layout slows down</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:36px;">
-          <div style="background:#fff;border:1px solid rgba(24,20,15,0.1);border-radius:18px;padding:26px;">
-            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#d9660c;">01</div>
+          <div style="background:#fff;border:1px solid rgba(26,26,26,0.1);border-radius:18px;padding:26px;">
+            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#0f6cbd;">01</div>
             <h3 data-i18n="who.c1.title"
-              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#18140f;">
+              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#1a1a1a;">
               Language learners</h3>
-            <p data-i18n="who.c1.body" style="font-size:15px;line-height:1.55;color:#4a443b;margin:10px 0 0;">Practising
+            <p data-i18n="who.c1.body" style="font-size:15px;line-height:1.55;color:#444444;margin:10px 0 0;">Practising
               a script you don't type in every day.</p>
           </div>
-          <div style="background:#fff;border:1px solid rgba(24,20,15,0.1);border-radius:18px;padding:26px;">
-            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#d9660c;">02</div>
+          <div style="background:#fff;border:1px solid rgba(26,26,26,0.1);border-radius:18px;padding:26px;">
+            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#0f6cbd;">02</div>
             <h3 data-i18n="who.c2.title"
-              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#18140f;">
+              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#1a1a1a;">
               Multilingual users</h3>
-            <p data-i18n="who.c2.body" style="font-size:15px;line-height:1.55;color:#4a443b;margin:10px 0 0;">Juggling
+            <p data-i18n="who.c2.body" style="font-size:15px;line-height:1.55;color:#444444;margin:10px 0 0;">Juggling
               more layouts than you actually use daily.</p>
           </div>
-          <div style="background:#fff;border:1px solid rgba(24,20,15,0.1);border-radius:18px;padding:26px;">
-            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#d9660c;">03</div>
+          <div style="background:#fff;border:1px solid rgba(26,26,26,0.1);border-radius:18px;padding:26px;">
+            <div style="font-family:var(--wellz-mono);font-weight:700;font-size:22px;color:#0f6cbd;">03</div>
             <h3 data-i18n="who.c3.title"
-              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#18140f;">Anyone
+              style="font-family:var(--wellz-mono);font-weight:700;font-size:16px;margin:14px 0 0;color:#1a1a1a;">Anyone
               tired of the clutter</h3>
-            <p data-i18n="who.c3.body" style="font-size:15px;line-height:1.55;color:#4a443b;margin:10px 0 0;">One rare
+            <p data-i18n="who.c3.body" style="font-size:15px;line-height:1.55;color:#444444;margin:10px 0 0;">One rare
               layout shouldn't slow down every switch.</p>
           </div>
         </div>
@@ -596,105 +562,105 @@
     </section>
 
     <!-- ============ COMPARISON (dark) ============ -->
-    <section style="background:#16130f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#1c1c1c;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1000px;margin:0 auto;">
         <p data-i18n="compare.eyebrow"
           style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--wellz-amber-solid);margin:0;">
           How it compares</p>
         <h2 data-i18n="compare.title"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,42px);line-height:1.12;letter-spacing:-0.02em;margin:14px 0 28px;max-width:20ch;">
-          Keyji vs. the workarounds</h2>
-        <div style="overflow-x:auto;border:1px solid rgba(247,245,240,0.1);border-radius:18px;">
+          BetLaSwi vs. the workarounds</h2>
+        <div style="overflow-x:auto;border:1px solid rgba(246,246,246,0.1);border-radius:18px;">
           <table class="cmp-table" style="width:100%;min-width:480px;border-collapse:collapse;font-size:14px;">
             <thead>
               <tr>
                 <th
-                  style="text-align:left;padding:18px 20px;font-weight:400;color:rgba(247,245,240,0.5);font-family:var(--wellz-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;">
+                  style="text-align:left;padding:18px 20px;font-weight:400;color:rgba(246,246,246,0.5);font-family:var(--wellz-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;">
                 </th>
                 <th
-                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:#16130f;background:linear-gradient(135deg,#f6b23e,#d9660c);">
-                  Keyji</th>
+                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:#1c1c1c;background:linear-gradient(135deg,#60cdff,#0f6cbd);">
+                  BetLaSwi</th>
                 <th
-                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:rgba(247,245,240,0.72);">
+                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:rgba(246,246,246,0.72);">
                   Win+Space</th>
                 <th
-                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:rgba(247,245,240,0.72);">
+                  style="padding:18px 16px;text-align:center;font-family:var(--wellz-mono);font-weight:700;font-size:13px;letter-spacing:-0.01em;color:rgba(246,246,246,0.72);">
                   Windows Settings</th>
               </tr>
             </thead>
             <tbody>
-              <tr style="border-top:1px solid rgba(247,245,240,0.08);">
-                <td data-i18n="compare.r1" style="padding:16px 20px;color:#f7f5f0;font-size:14.5px;line-height:1.4;">
+              <tr style="border-top:1px solid rgba(246,246,246,0.08);">
+                <td data-i18n="compare.r1" style="padding:16px 20px;color:#f6f6f6;font-size:14.5px;line-height:1.4;">
                   Puts a layout in the cycle only when needed</td>
-                <td style="padding:16px;text-align:center;background:rgba(246,178,62,0.08);"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                <td style="padding:16px;text-align:center;background:rgba(96,205,255,0.08);"><span
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(247,245,240,0.28);">✕</span>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(246,246,246,0.28);">✕</span>
                 </td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(247,245,240,0.5);">~</span>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(246,246,246,0.5);">~</span>
                 </td>
               </tr>
-              <tr style="border-top:1px solid rgba(247,245,240,0.08);">
-                <td data-i18n="compare.r2" style="padding:16px 20px;color:#f7f5f0;font-size:14.5px;line-height:1.4;">
+              <tr style="border-top:1px solid rgba(246,246,246,0.08);">
+                <td data-i18n="compare.r2" style="padding:16px 20px;color:#f6f6f6;font-size:14.5px;line-height:1.4;">
                   One-click toggle</td>
-                <td style="padding:16px;text-align:center;background:rgba(246,178,62,0.08);"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                <td style="padding:16px;text-align:center;background:rgba(96,205,255,0.08);"><span
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(247,245,240,0.5);">~</span>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(246,246,246,0.5);">~</span>
                 </td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(247,245,240,0.28);">✕</span>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(246,246,246,0.28);">✕</span>
                 </td>
               </tr>
-              <tr style="border-top:1px solid rgba(247,245,240,0.08);">
-                <td data-i18n="compare.r3" style="padding:16px 20px;color:#f7f5f0;font-size:14.5px;line-height:1.4;">No
+              <tr style="border-top:1px solid rgba(246,246,246,0.08);">
+                <td data-i18n="compare.r3" style="padding:16px 20px;color:#f6f6f6;font-size:14.5px;line-height:1.4;">No
                   Settings round-trip</td>
-                <td style="padding:16px;text-align:center;background:rgba(246,178,62,0.08);"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                <td style="padding:16px;text-align:center;background:rgba(96,205,255,0.08);"><span
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(247,245,240,0.28);">✕</span>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:rgba(246,246,246,0.28);">✕</span>
                 </td>
               </tr>
-              <tr style="border-top:1px solid rgba(247,245,240,0.08);">
-                <td data-i18n="compare.r4" style="padding:16px 20px;color:#f7f5f0;font-size:14.5px;line-height:1.4;">
+              <tr style="border-top:1px solid rgba(246,246,246,0.08);">
+                <td data-i18n="compare.r4" style="padding:16px 20px;color:#f6f6f6;font-size:14.5px;line-height:1.4;">
                   Native speed</td>
-                <td style="padding:16px;text-align:center;background:rgba(246,178,62,0.08);"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                <td style="padding:16px;text-align:center;background:rgba(96,205,255,0.08);"><span
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
                 <td style="padding:16px;text-align:center;"><span
-                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#f6b23e;">✓</span></td>
+                    style="font-family:var(--wellz-mono);font-weight:700;font-size:17px;color:#60cdff;">✓</span></td>
               </tr>
             </tbody>
           </table>
         </div>
         <p data-i18n="compare.legend"
-          style="font-family:var(--wellz-mono);font-size:12px;color:rgba(247,245,240,0.55);margin:16px 0 0;">✓ yes · ~
+          style="font-family:var(--wellz-mono);font-size:12px;color:rgba(246,246,246,0.55);margin:16px 0 0;">✓ yes · ~
           partial · ✕ no</p>
       </div>
     </section>
 
     <!-- ============ NOT A REPLACEMENT (light) ============ -->
-    <section style="background:#f7f5f0;color:#18140f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#f6f6f6;color:#1a1a1a;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1000px;margin:0 auto;">
         <p data-i18n="notReplace.eyebrow"
-          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#d9660c;margin:0;">
-          What Keyji isn't</p>
+          style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0f6cbd;margin:0;">
+          What BetLaSwi isn't</p>
         <h2 data-i18n="notReplace.title"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(26px,4.4vw,40px);line-height:1.12;letter-spacing:-0.02em;margin:14px 0 20px;max-width:22ch;">
           Not a Win+Space replacement</h2>
-        <p style="font-size:clamp(17px,2.2vw,21px);line-height:1.6;color:#3a352d;margin:0;max-width:62ch;text-wrap:pretty;"><span
+        <p style="font-size:clamp(17px,2.2vw,21px);line-height:1.6;color:#383838;margin:0;max-width:62ch;text-wrap:pretty;"><span
             data-i18n="notReplace.body1">Native switching cycles the layouts you already have active.</span> <strong
-            data-i18n="notReplace.body2" style="color:#18140f;">Keyji decides which layouts are in that cycle at
+            data-i18n="notReplace.body2" style="color:#1a1a1a;">BetLaSwi decides which layouts are in that cycle at
             all.</strong> <span data-i18n="notReplace.body3">Different job — they work happily side by side.</span></p>
       </div>
     </section>
 
     <!-- ============ OPENNESS (dark) ============ -->
-    <section style="background:#16130f;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
+    <section style="background:#1c1c1c;padding:clamp(64px,10vw,120px) clamp(18px,4vw,40px);">
       <div style="max-width:1000px;margin:0 auto;">
         <p data-i18n="openness.eyebrow"
           style="font-family:var(--wellz-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--wellz-amber-solid);margin:0;">
@@ -704,53 +670,53 @@
           Free, open, and built in the open</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;">
           <div
-            style="display:flex;align-items:flex-start;gap:13px;background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:14px;padding:20px;">
+            style="display:flex;align-items:flex-start;gap:13px;background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:14px;padding:20px;">
             <span
-              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#f6b23e,#d9660c);margin-top:6px;"></span>
+              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#60cdff,#0f6cbd);margin-top:6px;"></span>
             <div>
               <div data-i18n="openness.p1.title"
-                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f7f5f0;">MIT licensed</div>
+                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f6f6f6;">MIT licensed</div>
               <p data-i18n="openness.p1.body"
-                style="font-size:13.5px;line-height:1.5;color:rgba(247,245,240,0.72);margin:6px 0 0;">Use it, fork it,
+                style="font-size:13.5px;line-height:1.5;color:rgba(246,246,246,0.72);margin:6px 0 0;">Use it, fork it,
                 ship it. No strings.</p>
             </div>
           </div>
           <div
-            style="display:flex;align-items:flex-start;gap:13px;background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:14px;padding:20px;">
+            style="display:flex;align-items:flex-start;gap:13px;background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:14px;padding:20px;">
             <span
-              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#f6b23e,#d9660c);margin-top:6px;"></span>
+              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#60cdff,#0f6cbd);margin-top:6px;"></span>
             <div>
               <div data-i18n="openness.p2.title"
-                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f7f5f0;">Open source on
+                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f6f6f6;">Open source on
                 GitHub</div>
               <p data-i18n="openness.p2.body"
-                style="font-size:13.5px;line-height:1.5;color:rgba(247,245,240,0.72);margin:6px 0 0;">Every line is
+                style="font-size:13.5px;line-height:1.5;color:rgba(246,246,246,0.72);margin:6px 0 0;">Every line is
                 public — read it before you run it.</p>
             </div>
           </div>
           <div
-            style="display:flex;align-items:flex-start;gap:13px;background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:14px;padding:20px;">
+            style="display:flex;align-items:flex-start;gap:13px;background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:14px;padding:20px;">
             <span
-              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#f6b23e,#d9660c);margin-top:6px;"></span>
+              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#60cdff,#0f6cbd);margin-top:6px;"></span>
             <div>
               <div data-i18n="openness.p3.title"
-                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f7f5f0;">Built natively for
+                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f6f6f6;">Built natively for
                 Windows</div>
               <p data-i18n="openness.p3.body"
-                style="font-size:13.5px;line-height:1.5;color:rgba(247,245,240,0.72);margin:6px 0 0;">A real Windows app
+                style="font-size:13.5px;line-height:1.5;color:rgba(246,246,246,0.72);margin:6px 0 0;">A real Windows app
                 in C#/.NET — nothing extra to install to make it run.</p>
             </div>
           </div>
           <div
-            style="display:flex;align-items:flex-start;gap:13px;background:rgba(247,245,240,0.04);border:1px solid rgba(247,245,240,0.09);border-radius:14px;padding:20px;">
+            style="display:flex;align-items:flex-start;gap:13px;background:rgba(246,246,246,0.04);border:1px solid rgba(246,246,246,0.09);border-radius:14px;padding:20px;">
             <span
-              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#f6b23e,#d9660c);margin-top:6px;"></span>
+              style="flex:none;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#60cdff,#0f6cbd);margin-top:6px;"></span>
             <div>
               <div data-i18n="openness.p4.title"
-                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f7f5f0;">Contributions
+                style="font-family:var(--wellz-mono);font-weight:700;font-size:14.5px;color:#f6f6f6;">Contributions
                 welcome</div>
               <p data-i18n="openness.p4.body"
-                style="font-size:13.5px;line-height:1.5;color:rgba(247,245,240,0.72);margin:6px 0 0;">PRs and
+                style="font-size:13.5px;line-height:1.5;color:rgba(246,246,246,0.72);margin:6px 0 0;">PRs and
                 layout-preset requests are all fair game.</p>
             </div>
           </div>
@@ -760,37 +726,37 @@
 
     <!-- ============ FINAL CTA + FOOTER (dark) ============ -->
     <section
-      style="position:relative;overflow:hidden;background:#16130f;padding:clamp(72px,12vw,140px) clamp(18px,4vw,40px) clamp(20px,3vw,32px);">
+      style="position:relative;overflow:hidden;background:#1c1c1c;padding:clamp(72px,12vw,140px) clamp(18px,4vw,40px) clamp(20px,3vw,32px);">
       <div
-        style="position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);width:min(900px,120vw);height:520px;background:radial-gradient(circle at 50% 60%,rgba(246,178,62,0.18),transparent 62%);pointer-events:none;">
+        style="position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);width:min(900px,120vw);height:520px;background:radial-gradient(circle at 50% 60%,rgba(96,205,255,0.18),transparent 62%);pointer-events:none;">
       </div>
       <div style="position:relative;max-width:820px;margin:0 auto;text-align:center;">
         <h2 data-i18n="final.headline"
           style="font-family:var(--wellz-mono);font-weight:700;font-size:clamp(28px,5vw,50px);line-height:1.1;letter-spacing:-0.02em;margin:0 auto;max-width:18ch;text-wrap:balance;">
           Stop cycling past a layout you barely use.</h2>
         <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:34px;">
-          <a href="https://github.com/Wel-lz/Keyji/releases/latest/download/Keyji.exe"
-            style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 32px;border-radius:12px;background:linear-gradient(135deg,#f6b23e,#d9660c);color:#16130f;font-family:var(--wellz-mono);font-size:15.5px;line-height:1.2;cursor:pointer;box-shadow:0 12px 34px rgba(217,102,12,0.34);text-decoration:none;">
+          <a href="https://github.com/Wel-lz/Keyji/releases/latest"
+            style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 32px;border-radius:12px;background:linear-gradient(135deg,#0f6cbd,#0a4f88);color:#ffffff;font-family:var(--wellz-mono);font-size:15.5px;line-height:1.2;cursor:pointer;box-shadow:0 12px 34px rgba(15,108,189,0.34);text-decoration:none;">
             <span data-i18n="nav.download" style="font-weight:700;">Download for Windows</span>
           </a>
           <a class="link-soft" href="https://github.com/Wel-lz/Keyji"
-            style="display:inline-flex;align-items:center;gap:6px;padding:4px 6px;background:transparent;border:none;color:rgba(247,245,240,0.5);font-family:var(--wellz-mono);font-weight:700;font-size:13px;">★
+            style="display:inline-flex;align-items:center;gap:6px;padding:4px 6px;background:transparent;border:none;color:rgba(246,246,246,0.5);font-family:var(--wellz-mono);font-weight:700;font-size:13px;">★
             <span data-i18n="nav.star">Like on GitHub</span></a>
         </div>
         <p data-i18n="hero.micro"
-          style="font-family:var(--wellz-mono);font-size:12.5px;letter-spacing:0.06em;color:rgba(247,245,240,0.5);margin-top:22px;">
+          style="font-family:var(--wellz-mono);font-size:12.5px;letter-spacing:0.06em;color:rgba(246,246,246,0.5);margin-top:22px;">
           Free · open-source · one file, nothing to install</p>
       </div>
       <footer
-        style="position:relative;max-width:1160px;margin:clamp(56px,9vw,96px) auto 0;padding-top:26px;border-top:1px solid rgba(247,245,240,0.08);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        style="position:relative;max-width:1160px;margin:clamp(56px,9vw,96px) auto 0;padding-top:26px;border-top:1px solid rgba(246,246,246,0.08);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:10px;">
           <img src="assets/landing/mark-color.svg" alt="" aria-hidden="true" width="24" height="24">
           <span data-i18n="footer"
-            style="font-family:var(--wellz-mono);font-size:13px;color:rgba(247,245,240,0.7);">Keyji by Wellz · MIT ·
+            style="font-family:var(--wellz-mono);font-size:13px;color:rgba(246,246,246,0.7);">BetLaSwi by Wellz · MIT ·
             2026</span>
         </div>
         <div style="display:flex;gap:18px;font-family:var(--wellz-mono);font-size:13px;">
-          <a class="link-foot" href="https://github.com/Wel-lz/Keyji" style="color:rgba(247,245,240,0.6);">GitHub</a>
+          <a class="link-foot" href="https://github.com/Wel-lz/Keyji" style="color:rgba(246,246,246,0.6);">GitHub</a>
         </div>
       </footer>
     </section>
@@ -802,7 +768,7 @@
     var I18N = {
       en: {
         "nav.star": "Like on GitHub", "nav.download": "Download for Windows",
-        "hero.headline": "Learning a language shouldn't clutter your keyboard.",
+        "hero.headline": "A tiny bird. A world of languages.",
         "hero.subline": "Keep a rarely-needed layout one click away — and out of your way the rest of the time.",
         "hero.micro": "FREE · OPEN-SOURCE · ONE FILE, NOTHING TO INSTALL",
         "problem.eyebrow": "The problem",
@@ -818,7 +784,7 @@
         "problem.cycleLabel": "It cycles your layouts",
         "problem.diagramCaption": "Whatever your switch shortcut is, it cycles through every active layout — including the one you touch once a week.",
         "solution.eyebrow": "How it works",
-        "solution.title": "Keyji lives in your tray.",
+        "solution.title": "BetLaSwi lives in your tray.",
         "solution.sub": "A click toggles a rare layout in when you need it, out when you don't.",
         "solution.gifCaption": "Toggling the layout from the tray",
         "solution.shotCaption": "First-run onboarding window",
@@ -827,23 +793,23 @@
         "solution.b3.title": "Friendly first-run onboarding", "solution.b3.body": "A short, plain-language setup the first time you open it.",
         "solution.b4.title": "Native & instant", "solution.b4.body": "Under 100ms. No PowerShell, no scripts, no lag.",
         "solution.b5.title": "One self-contained .exe", "solution.b5.body": "Nothing to install, nothing left behind.",
-        "solution.jpNote": "Learning Japanese? Flip it on and Keyji drops the IME straight into hiragana — no fumbling out of romaji mode. On by default.",
+        "solution.jpNote": "Learning Japanese? Flip it on and BetLaSwi drops the IME straight into hiragana — no fumbling out of romaji mode. On by default.",
         "who.eyebrow": "Who it's for",
         "who.title": "For anyone a rare layout slows down",
         "who.c1.title": "Language learners", "who.c1.body": "Practising a script you don't type in every day.",
         "who.c2.title": "Multilingual users", "who.c2.body": "Juggling more layouts than you actually use daily.",
         "who.c3.title": "Anyone tired of the clutter", "who.c3.body": "One rare layout shouldn't slow down every switch.",
         "compare.eyebrow": "How it compares",
-        "compare.title": "Keyji vs. the workarounds",
+        "compare.title": "BetLaSwi vs. the workarounds",
         "compare.r1": "Puts a layout in the cycle only when needed",
         "compare.r2": "One-click toggle",
         "compare.r3": "No Settings round-trip",
         "compare.r4": "Native speed",
         "compare.legend": "✓ yes · ~ partial · ✕ no",
-        "notReplace.eyebrow": "What Keyji isn't",
+        "notReplace.eyebrow": "What BetLaSwi isn't",
         "notReplace.title": "Not a Win+Space replacement",
         "notReplace.body1": "Native switching cycles the layouts you already have active.",
-        "notReplace.body2": "Keyji decides which layouts are in that cycle at all.",
+        "notReplace.body2": "BetLaSwi decides which layouts are in that cycle at all.",
         "notReplace.body3": "Different job — they work happily side by side.",
         "openness.eyebrow": "Open by default",
         "openness.title": "Free, open, and built in the open",
@@ -852,12 +818,12 @@
         "openness.p3.title": "Built natively for Windows", "openness.p3.body": "A real Windows app in C#/.NET — nothing extra to install to make it run.",
         "openness.p4.title": "Contributions welcome", "openness.p4.body": "PRs and layout-preset requests are all fair game.",
         "final.headline": "Stop cycling past a layout you barely use.",
-        "footer": "Keyji by Wellz · MIT · 2026"
+        "footer": "BetLaSwi by Wellz · MIT · 2026"
       },
       ru: {
         "nav.star": "Лайк на GitHub",
         "nav.download": "Скачать для Windows",
-        "hero.headline": "Изучение языка не должно захламлять клавиатуру.",
+        "hero.headline": "Маленькая птица. Целый мир языков.",
         "hero.subline": "Держите редкую раскладку в одном клике — и убирайте с глаз, пока она не нужна.",
         "hero.micro": "БЕСПЛАТНО · ОТКРЫТЫЙ КОД · ОДИН ФАЙЛ, БЕЗ УСТАНОВКИ",
         "problem.eyebrow": "Проблема",
@@ -873,7 +839,7 @@
         "problem.cycleLabel": "Цикл ваших раскладок",
         "problem.diagramCaption": "Какой бы ни была горячая клавиша, она прокручивает все активные раскладки — включая ту, что нужна раз в неделю.",
         "solution.eyebrow": "Как это работает",
-        "solution.title": "Keyji живёт в трее.",
+        "solution.title": "BetLaSwi живёт в трее.",
         "solution.sub": "Клик добавляет редкую раскладку, когда она нужна, и убирает, когда нет.",
         "solution.gifCaption": "Переключение раскладки из трея",
         "solution.shotCaption": "Окно первого запуска",
@@ -882,23 +848,23 @@
         "solution.b3.title": "Дружелюбный первый запуск", "solution.b3.body": "Короткая понятная настройка при первом открытии.",
         "solution.b4.title": "Нативно и мгновенно", "solution.b4.body": "Меньше 100 мс. Без PowerShell, скриптов и задержек.",
         "solution.b5.title": "Один самодостаточный .exe", "solution.b5.body": "Ничего не нужно устанавливать, ничего лишнего не остаётся.",
-        "solution.jpNote": "Учишь японский? Включаешь — и Keyji сразу ставит IME в хирагану, без возни с выходом из ромадзи. Включено по умолчанию.",
+        "solution.jpNote": "Учишь японский? Включаешь — и BetLaSwi сразу ставит IME в хирагану, без возни с выходом из ромадзи. Включено по умолчанию.",
         "who.eyebrow": "Для кого",
         "who.title": "Для тех, кому мешает редкая раскладка",
         "who.c1.title": "Изучающие языки", "who.c1.body": "Практикуете письменность, которой пользуетесь не каждый день.",
         "who.c2.title": "Многоязычные пользователи", "who.c2.body": "Раскладок больше, чем нужно каждый день.",
         "who.c3.title": "Все, кто устал от лишнего", "who.c3.body": "Одна редкая раскладка не должна тормозить каждое переключение.",
         "compare.eyebrow": "Сравнение",
-        "compare.title": "Keyji против обходных путей",
+        "compare.title": "BetLaSwi против обходных путей",
         "compare.r1": "Добавляет раскладку в цикл только когда нужно",
         "compare.r2": "Переключение в один клик",
         "compare.r3": "Без похода в Параметры",
         "compare.r4": "Нативная скорость",
         "compare.legend": "✓ да · ~ частично · ✕ нет",
-        "notReplace.eyebrow": "Чем Keyji не является",
+        "notReplace.eyebrow": "Чем BetLaSwi не является",
         "notReplace.title": "Это не замена Win+Space",
         "notReplace.body1": "Системное переключение прокручивает раскладки, которые у вас уже активны.",
-        "notReplace.body2": "Keyji решает, какие раскладки вообще есть в этом цикле.",
+        "notReplace.body2": "BetLaSwi решает, какие раскладки вообще есть в этом цикле.",
         "notReplace.body3": "Разные задачи — они спокойно работают бок о бок.",
         "openness.eyebrow": "Открыто по умолчанию",
         "openness.title": "Бесплатно и с открытым кодом",
@@ -907,7 +873,7 @@
         "openness.p3.title": "Нативное приложение для Windows", "openness.p3.body": "Написано на C#/.NET — ничего лишнего доустанавливать не нужно.",
         "openness.p4.title": "Контрибьюции приветствуются", "openness.p4.body": "PR и запросы пресетов раскладок — всегда пожалуйста.",
         "final.headline": "Хватит прокручивать раскладку, которой почти не пользуетесь.",
-        "footer": "Keyji · продукт Wellz · MIT · 2026"
+        "footer": "BetLaSwi · продукт Wellz · MIT · 2026"
       }
     };
 

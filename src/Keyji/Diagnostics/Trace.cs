@@ -18,7 +18,7 @@ namespace Keyji.Diagnostics;
 public static class Trace
 {
     private static readonly string FilePath = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Keyji", "ime-switch.log");
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BetLaSwi", "ime-switch.log");
 
     [Conditional("DEBUG")]
     public static void Line(string message)

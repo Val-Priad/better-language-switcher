@@ -343,7 +343,7 @@ public partial class MainWindow : FluentWindow
             RefreshState();
             System.Windows.MessageBox.Show(
                 Loc.Get("dialog.toggleFailed", Loc.Get(enable ? "verb.enable" : "verb.disable"), lang.DisplayName),
-                "Keyji", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                "BetLaSwi", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
             return;
         }
 
@@ -361,7 +361,7 @@ public partial class MainWindow : FluentWindow
         {
             System.Windows.MessageBox.Show(
                 Loc.Get("dialog.openSettingsFailed", ex.Message),
-                "Keyji", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+                "BetLaSwi", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
         }
     }
 

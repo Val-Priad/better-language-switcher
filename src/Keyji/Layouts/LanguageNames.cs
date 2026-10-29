@@ -28,7 +28,7 @@ public static class LanguageNames
 
         var (shortName, dropped) = Shorten(localizedFull);
 
-        string label = shortName.ToUpper(CultureInfo.CurrentCulture);
+        string label = shortName;
         if (profile.IsTip)
             label += " · IME";
 

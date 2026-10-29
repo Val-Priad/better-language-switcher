@@ -62,6 +62,12 @@ try
     settings.PinnedKey = null;
     SettingsService.SaveTo(path, settings);
     Check(SettingsService.LoadFrom(path).ManagedLanguages.Count == 0, "Empty managed set rejected");
+
+    string migratedPath = Path.Combine(folder, "new", "settings.json");
+    var migrated = SettingsService.LoadFromPaths(migratedPath, path);
+    Check(migrated.ManagedLanguages.Count == 0 && File.Exists(migratedPath),
+        "Legacy settings were not migrated");
+    Check(File.Exists(path), "Migration removed the legacy settings");
 }
 finally
 {
@@ -71,4 +77,8 @@ finally
 Check(AutostartService.IsOwnedValue("\"C:\\Keyji.exe\" --tray", "C:\\Keyji.exe"), "Owned Run entry rejected");
 Check(!AutostartService.IsOwnedValue("\"C:\\Keyji.exe\" --tray & evil.exe", "C:\\Keyji.exe"),
     "Extra startup command accepted");
+Check(AutostartService.IsLegacyOwnedValue("\"C:\\Apps\\Keyji.exe\" --tray"),
+    "Owned legacy Run entry rejected");
+Check(!AutostartService.IsLegacyOwnedValue("\"C:\\Apps\\Keyji.exe\" --tray & evil.exe"),
+    "Injected legacy Run entry accepted");
 Console.WriteLine("Security behavior tests passed.");

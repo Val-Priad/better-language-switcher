@@ -10,17 +10,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Keyji</AssemblyName>
-    <Product>Keyji</Product>
+    <AssemblyName>BetLaSwi</AssemblyName>
+    <Product>BetLaSwi</Product>
     <Version>0.1.0</Version>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Assets\keyji.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\betlaswi.ico</ApplicationIcon>
 
     <!-- Version Information для .exe:
          осмысленные Product/Description/Company/Copyright — «непугающий» нативный вид.
          AssemblyTitle → FileDescription, Company → CompanyName, Copyright → LegalCopyright. -->
-    <AssemblyTitle>Keyji — keyboard layout &amp; input switcher</AssemblyTitle>
-    <Description>Keyboard layout and input language switcher for Windows.</Description>
+    <AssemblyTitle>BetLaSwi — keyboard layout &amp; input switcher</AssemblyTitle>
+    <Description>A tiny bird. A world of languages.</Description>
     <Company>Wellz</Company>
     <Authors>Wellz</Authors>
     <Copyright>Copyright © 2026 Wellz</Copyright>
@@ -45,18 +45,9 @@
     <PackageReference Include="WPF-UI" Version="[4.3.0]" />
   </ItemGroup>
 
-  <!-- Шрифты панели. Build action = Resource: файлы вшиваются в сам .exe
-       (в т.ч. при PublishSingleFile), подключаются как pack://.../#Space Mono.
-       Content/CopyToOutput сюда не годятся — они кладут файл рядом, не в бандл. -->
-  <ItemGroup>
-    <Resource Include="Assets\Fonts\SpaceMono-Regular.ttf" />
-    <Resource Include="Assets\Fonts\SpaceMono-Bold.ttf" />
-    <None Include="Assets\Fonts\OFL.txt" />
-  </ItemGroup>
-
   <!-- Языки UI: плоский key→value JSON, вшитый в exe как EmbeddedResource —
        живёт внутри single-file бандла, читается через GetManifestResourceStream (Loc.cs).
-       Имена ресурсов манифеста получают вид Keyji.Localization.Strings.<code>.json;
+       Имена ресурсов манифеста получают вид BetLaSwi.Localization.Strings.<code>.json;
        Loc ищет их по суффиксу .<code>.json, поэтому точное имя не завязано жёстко. -->
   <ItemGroup>
     <EmbeddedResource Include="Localization\Strings\*.json" />

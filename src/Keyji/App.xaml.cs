@@ -1,6 +1,7 @@
 using System.Windows;
 using Keyji.Localization;
 using Keyji.Settings;
+using Keyji.Startup;
 using Keyji.Theming;
 
 namespace Keyji;
@@ -28,6 +29,11 @@ public partial class App : Application
 
         // Тема панели — до создания любого UI, иначе первый кадр мигнёт чужой темой.
         PanelTheme.Initialize();
+
+        // Registry access may be restricted; startup migration must not block the app.
+        try { AutostartService.MigrateLegacyEntry(); }
+        catch (UnauthorizedAccessException) { }
+        catch (System.Security.SecurityException) { }
 
         // Признак первого запуска читаем ДО конструктора MainWindow: он сразу пишет
         // settings.json (нормализация закреплённого), что затёрло бы этот сигнал.

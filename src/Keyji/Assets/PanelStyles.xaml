@@ -11,7 +11,7 @@
 
     <!-- ==================== КНОПКИ-ИКОНКИ ==================== -->
     <!-- Радиус разный по месту (kebab/download 8, тема 10, футер — нижние
-         углы карты 22), поэтому шаблон повторяется: у Button нет CornerRadius,
+         углы карты 12), поэтому шаблон повторяется: у Button нет CornerRadius,
          который можно было бы прокинуть TemplateBinding'ом. -->
 
     <!-- Кебаб «…» и «⤓ скачать» внутри строки языка: 34×34, радиус 8. -->
@@ -82,13 +82,13 @@
         </Setter>
     </Style>
 
-    <!-- Кнопки футера: скругление наследует нижние углы карты (22), поэтому левая и
+    <!-- Кнопки футера: скругление наследует нижние углы карты (12), поэтому левая и
          правая отличаются — общего шаблона у них не выходит. -->
     <Style x:Key="Panel.FooterLeftButton" TargetType="Button" BasedOn="{StaticResource Panel.RowButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="0,0,0,22">
+                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="0,0,0,12">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
@@ -105,7 +105,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="0,0,22,0">
+                    <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="0,0,12,0">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
@@ -119,7 +119,7 @@
     </Style>
 
     <!-- ==================== ПУНКТ «…»-МЕНЮ СТРОКИ ==================== -->
-    <!-- Space Mono 13px, padding 10/12, радиус 7, hover-подсветка; ширина тянется
+    <!-- Segoe UI 13px, padding 10/12, радиус 7, hover-подсветка; ширина тянется
          на весь поповер (текст слева), поэтому не IconButton, а своя кнопка. -->
     <Style x:Key="Panel.MenuItem" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -152,7 +152,7 @@
     <Style x:Key="Panel.DialogButton" TargetType="Button">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
+        <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Background" Value="Transparent" />
@@ -187,31 +187,31 @@
 
     <!-- ==================== ТИПОГРАФИКА ==================== -->
 
-    <!-- Нативный эндоним языка: системный гротеск без засечек (Segoe UI), 25px.
+    <!-- Нативный эндоним языка: системный гротеск без засечек (Segoe UI), 18px.
          Замена Georgia на sans: Segoe UI не вшивается и
          покрывает CJK/арабицу/кириллицу через системный фолбэк шрифтов. -->
     <Style x:Key="Panel.NativeName" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe UI, Segoe UI Variable" />
-        <Setter Property="FontSize" Value="25" />
-        <Setter Property="Margin" Value="0,0,0,5" />
+        <Setter Property="FontFamily" Value="Segoe UI Variable, Segoe UI" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="0,0,0,3" />
         <Setter Property="Foreground" Value="{DynamicResource PanelTextBrush}" />
     </Style>
 
-    <!-- Локализованное имя от ОС: Space Mono 700, 12px, трекинг 1.5. -->
+    <!-- Локализованное имя от ОС: системный шрифт, 12px. -->
     <Style x:Key="Panel.NameLabel" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{DynamicResource PanelMutedBrush}" />
     </Style>
 
     <!-- ==================== ТОГЛ ВКЛ/ВЫКЛ ==================== -->
-    <!-- Пилюля 62×34 с ручкой 26. Переход фона трека сделан наложением двух слоёв
+    <!-- Переключатель 44×24 с ручкой 18. Переход фона трека сделан наложением двух слоёв
          (accent снизу, track-off сверху с анимируемой Opacity): анимировать цвет
          кисти напрямую нельзя — кисти приходят DynamicResource'ом из темы. -->
     <Style x:Key="Panel.Toggle" TargetType="ToggleButton">
-        <Setter Property="Width" Value="62" />
-        <Setter Property="Height" Value="34" />
+        <Setter Property="Width" Value="44" />
+        <Setter Property="Height" Value="24" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Background" Value="Transparent" />
@@ -219,11 +219,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Grid>
-                        <Border CornerRadius="17" Background="{DynamicResource PanelAccentBrush}" />
-                        <Border x:Name="TrackOff" CornerRadius="17"
+                        <Border CornerRadius="12" Background="{DynamicResource PanelAccentBrush}" />
+                        <Border x:Name="TrackOff" CornerRadius="12"
                                 Background="{DynamicResource PanelTrackOffBrush}" Opacity="1" />
-                        <Ellipse x:Name="Knob" Width="26" Height="26"
-                                 HorizontalAlignment="Left" Margin="4,0,0,0"
+                        <Ellipse x:Name="Knob" Width="18" Height="18"
+                                 HorizontalAlignment="Left" Margin="3,0,0,0"
                                  Fill="{DynamicResource PanelKnobOffBrush}">
                             <Ellipse.RenderTransform>
                                 <TranslateTransform x:Name="KnobShift" X="0" />
@@ -238,7 +238,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="KnobShift"
                                                          Storyboard.TargetProperty="X"
-                                                         To="28" Duration="0:0:0.18">
+                                                         To="20" Duration="0:0:0.18">
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
@@ -306,13 +306,13 @@
          Тристейт «Системная · Светлая · Тёмная»: три
          RadioButton в общей группе живут в контейнере-треке (ниже, в разметке оверлея).
          Выбранный сегмент заливается accent'ом, текст на нём — цветом поверхности (контраст,
-         как галочка чекбокса); прочие приглушены. Space Mono, скругление 8 — вписывается
+         как галочка чекбокса); прочие приглушены. Segoe UI, скругление 8 — вписывается
          в трек радиуса 10 с полем 3. Триггер IsChecked стоит после IsMouseOver, поэтому
          выбранный сегмент держит accent и под курсором. -->
     <Style x:Key="Panel.Segment" TargetType="RadioButton">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
+        <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{DynamicResource PanelMutedBrush}" />
@@ -341,10 +341,10 @@
          Подтверждено: раскрытие Popup композится над оверлеем в HWND. Бокс —
          ToggleButton (заливка + стрелка), выбранное значение поверх через ContentPresenter
          (IsHitTestVisible=False); список — Popup PART_Popup в теме панели (как ConfirmLayer),
-         пункты — Panel.ComboItem. Space Mono, скругление 8. -->
+         пункты — Panel.ComboItem. Segoe UI, скругление 8. -->
     <Style x:Key="Panel.ComboItem" TargetType="ComboBoxItem">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
+        <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{DynamicResource PanelMenuTextBrush}" />
         <Setter Property="Template">
@@ -371,7 +371,7 @@
 
     <Style x:Key="Panel.ComboBox" TargetType="ComboBox">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FontFamily" Value="{StaticResource SpaceMono}" />
+        <Setter Property="FontFamily" Value="{StaticResource AppFont}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{DynamicResource PanelTextBrush}" />
         <!-- Тянемся на всю ширину карточки (как сегмент темы выше): без этого бокс

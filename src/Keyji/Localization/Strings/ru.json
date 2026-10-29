@@ -4,7 +4,7 @@
   "panel.tooltip.settings": "Настройки",
   "panel.tooltip.exit": "Выход",
   "panel.tooltip.back": "Назад",
-  "panel.badge.system": "СИСТЕМНЫЙ",
+  "panel.badge.system": "Системный",
   "panel.addLanguage": "Добавить язык",
   "panel.settings.title": "Настройки",
   "panel.settings.theme": "Тема",
@@ -14,7 +14,7 @@
   "panel.settings.language": "Язык",
   "panel.settings.language.system": "Системный",
   "panel.settings.autostart": "Запускать при входе в Windows",
-  "panel.settings.autostartWarning": "Автозапуск сломается, если переместить или удалить Keyji.exe",
+  "panel.settings.autostartWarning": "Автозапуск сломается, если переместить или удалить BetLaSwi.exe",
 
   "catalog.title": "Добавить язык",
   "catalog.empty": "Все установленные языки уже в наборе или отмечены как системные",
@@ -22,7 +22,7 @@
   "confirm.title": "Установка языка",
   "confirm.cancel": "Отмена",
   "confirm.ok": "Открыть параметры",
-  "confirm.body": "Язык «{0}» ещё не установлен в Windows. Keyji откроет параметры и скопирует название в буфер обмена.\n\nДальше в параметрах:\n1.  Нажмите «Добавить язык»\n2.  Вставьте название в поиск  (Ctrl+V)\n3.  Выберите язык и установите",
+  "confirm.body": "Язык «{0}» ещё не установлен в Windows. BetLaSwi откроет параметры и скопирует название в буфер обмена.\n\nДальше в параметрах:\n1.  Нажмите «Добавить язык»\n2.  Вставьте название в поиск  (Ctrl+V)\n3.  Выберите язык и установите",
 
   "menu.unpin": "Открепить",
   "menu.pin": "Закрепить",
@@ -37,20 +37,20 @@
   "verb.enable": "включить",
   "verb.disable": "выключить",
 
-  "tray.tooltip.unpinned": "Keyji — язык не закреплён",
-  "tray.tooltip.pinned": "Keyji — {0}: {1}",
+  "tray.tooltip.unpinned": "BetLaSwi — язык не закреплён",
+  "tray.tooltip.pinned": "BetLaSwi — {0}: {1}",
   "tray.status.enabled": "включён",
   "tray.status.disabled": "выключен",
 
-  "welcome.title": "Добро пожаловать в Keyji",
-  "welcome.intro": "Keyji живёт в трее рядом с часами и помогает переключать раскладки и языки ввода. Вот как им пользоваться:",
+  "welcome.title": "Добро пожаловать в BetLaSwi",
+  "welcome.intro": "BetLaSwi живёт в трее рядом с часами и помогает переключать раскладки и языки ввода. Вот как им пользоваться:",
   "welcome.gesture.right.tag": "ПКМ",
   "welcome.gesture.right.text": "Правый клик по иконке в трее открывает панель — там языки, закрепление, настройки и выход.",
   "welcome.gesture.left.tag": "ЛКМ",
   "welcome.gesture.left.text": "Левый клик по иконке включает или выключает закреплённый язык.",
-  "welcome.location.title": "Не перемещайте Keyji",
-  "welcome.location.text": "Держите Keyji.exe в постоянной папке. Если переместить или удалить файл, перестанет работать автозапуск, а заново открыть Keyji не получится — не оставляйте его в «Загрузках» или во временной папке.",
-  "welcome.footer": "Это окно можно закрыть — Keyji продолжит работать в трее.",
+  "welcome.location.title": "Не перемещайте BetLaSwi",
+  "welcome.location.text": "Держите BetLaSwi.exe в постоянной папке. Если переместить или удалить файл, перестанет работать автозапуск, а заново открыть BetLaSwi не получится — не оставляйте его в «Загрузках» или во временной папке.",
+  "welcome.footer": "Это окно можно закрыть — BetLaSwi продолжит работать в трее.",
   "firstrun.permanent.title": "Постоянные языки",
-  "firstrun.permanent.hint": "Keyji никогда не выключает эти раскладки — это ваши базовые языки. Снимите галочку, если хотите, чтобы Keyji мог ими управлять (включать/выключать)."
+  "firstrun.permanent.hint": "BetLaSwi никогда не выключает эти раскладки — это ваши базовые языки. Снимите галочку, если хотите, чтобы BetLaSwi мог ими управлять (включать/выключать)."
 }

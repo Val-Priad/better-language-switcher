@@ -48,14 +48,14 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding Text}"
-                                   FontFamily="{StaticResource SpaceMono}" FontSize="14"
+                                   FontFamily="{StaticResource AppFont}" FontSize="14"
                                    VerticalAlignment="Center"
                                    Foreground="{DynamicResource PanelMenuTextBrush}" />
                         <!-- Галочка чекаемого пункта — у ПРАВОГО края; когда снят, её просто
                              нет (текст занимает всю ширину, пустого места слева не остаётся). -->
                         <TextBlock x:Name="Check" Grid.Column="1" Text="✓" Margin="16,0,0,0"
                                    Visibility="Collapsed"
-                                   FontFamily="{StaticResource SpaceMono}" FontSize="14"
+                                   FontFamily="{StaticResource AppFont}" FontSize="14"
                                    VerticalAlignment="Center"
                                    Foreground="{DynamicResource PanelMenuTextBrush}" />
                     </Grid>
@@ -83,7 +83,7 @@
         <DataTemplate x:Key="Panel.CatalogRowTemplate" DataType="{x:Type panel:CatalogEntryView}">
             <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
                 <Button Style="{StaticResource Panel.CatalogRowButton}" Click="OnCatalogRow">
-                    <Grid Margin="26,13,20,13">
+                    <Grid Margin="20,11,18,11">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <!-- Фикс-ширина аффорданса: «+» и иконка загрузки центрируются в
@@ -107,7 +107,7 @@
                         <TextBlock x:Name="AddGlyph" Grid.Column="1" Text="+"
                                    VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
                                    Visibility="Collapsed"
-                                   FontFamily="{StaticResource SpaceMono}" FontWeight="Bold" FontSize="20"
+                                   FontFamily="{StaticResource AppFont}" FontWeight="Bold" FontSize="20"
                                    Foreground="{DynamicResource PanelAccentBrush}" />
 
                         <!-- пакета нет → «скачать»: только иконка загрузки (слово убрано),
@@ -136,7 +136,7 @@
         <!-- Закреплённый: пин-глиф + имя, тогл + «…» -->
         <DataTemplate x:Key="Panel.PinnedRowTemplate" DataType="{x:Type panel:PanelRowView}">
             <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
-                <Grid Margin="26,16">
+                <Grid Margin="20,12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -173,7 +173,7 @@
         <!-- Обычный: имя + (тогл | «⤓ скачать») + «…» -->
         <DataTemplate x:Key="Panel.NormalRowTemplate" DataType="{x:Type panel:PanelRowView}">
             <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
-                <Grid Margin="26,16">
+                <Grid Margin="20,12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -222,7 +222,7 @@
              это «Сделать обычным» в «…»-меню. -->
         <DataTemplate x:Key="Panel.SystemRowTemplate" DataType="{x:Type panel:PanelRowView}">
             <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
-                <Grid Margin="26,16">
+                <Grid Margin="20,12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -241,7 +241,7 @@
                                 CornerRadius="6" Padding="9,4" Margin="0,0,6,0" VerticalAlignment="Center">
                             <!-- Термин «СИСТЕМНЫЙ» заморожен (в коде — «постоянный»). -->
                             <TextBlock Text="{loc:T panel.badge.system}"
-                                       FontFamily="{StaticResource SpaceMono}" FontWeight="Bold" FontSize="10"
+                                       FontFamily="{StaticResource AppFont}" FontWeight="SemiBold" FontSize="11"
                                        Foreground="{DynamicResource PanelMutedBrush}" />
                         </Border>
                         <Button Style="{StaticResource Panel.KebabButton}" Click="OnRowMenu">
@@ -260,15 +260,15 @@
          окна резкой линией. Значение синхронно с ShadowMargin в code-behind (якорь).
          Слой оверлея «…»-меню — второй ребёнок этого же Grid. -->
     <Grid Margin="60">
-        <Border x:Name="Card" Width="460" CornerRadius="22"
+        <Border x:Name="Card" Width="440" CornerRadius="12"
                 Background="{DynamicResource PanelSurfaceBrush}"
                 BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="1"
                 RenderTransformOrigin="0.5,1">
             <Border.Effect>
                 <!-- Тень уходит вниз (Direction 270). Размах ShadowDepth+BlurRadius = 60 держим
                      ≤ поля тени (60), иначе обрежется о край окна. -->
-                <DropShadowEffect BlurRadius="44" ShadowDepth="16" Direction="270"
-                                  Opacity="0.7" Color="{DynamicResource PanelShadowColor}" />
+                <DropShadowEffect BlurRadius="24" ShadowDepth="8" Direction="270"
+                                  Opacity="0.45" Color="{DynamicResource PanelShadowColor}" />
             </Border.Effect>
             <Border.RenderTransform>
                 <TransformGroup>
@@ -279,32 +279,21 @@
 
             <StackPanel>
                 <!-- ==================== ШАПКА ==================== -->
-                <Grid Margin="26,22">
+                <Grid Margin="20,18,20,16">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-
-                    <Border Grid.Column="0" Width="44" Height="44" CornerRadius="12">
-                        <Border.Background>
-                            <!-- Полноразмерный знак (`img/keyji-on.svg`), не трей-иконка:
-                                 у той глиф срисован под 16px и в шапке читается обрубком. -->
-                            <ImageBrush ImageSource="{StaticResource PanelLogo}" Stretch="Uniform" />
-                        </Border.Background>
-                    </Border>
-
-                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="16,0,0,0"
-                                VerticalAlignment="Center">
-                        <TextBlock Text="Keyji" FontFamily="{StaticResource SpaceMono}" FontWeight="Bold"
-                                   FontSize="30" Foreground="{DynamicResource PanelAccentBrush}" />
-                        <TextBlock x:Name="Caret" Text="_" FontFamily="{StaticResource SpaceMono}"
-                                   FontWeight="Bold" FontSize="30"
-                                   Foreground="{DynamicResource PanelAccentBrush}" />
+                    <Image Grid.Column="0" Source="{StaticResource PanelLogo}"
+                           Width="40" Height="40" VerticalAlignment="Center" />
+                    <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="BetLaSwi" FontFamily="{StaticResource AppFont}"
+                                   FontWeight="SemiBold" FontSize="20"
+                                   Foreground="{DynamicResource PanelTextBrush}" />
+                        <TextBlock Text="A tiny bird. A world of languages."
+                                   FontFamily="{StaticResource AppFont}" FontSize="11"
+                                   Foreground="{DynamicResource PanelMutedBrush}" />
                     </StackPanel>
-
-                    <!-- Столбец инструментов пуст: оба dev-тогла (тема, язык) уехали
-                         в оверлей настроек настоящими настройками. Шапка = логотип + вордмарк. -->
                 </Grid>
 
                 <!-- Тело карты: список языков + добавление + настройки + футер. Экран-каталог
@@ -332,12 +321,12 @@
                 <Border BorderBrush="{DynamicResource PanelBorderBrush}" BorderThickness="0,1,0,0">
                     <Button Style="{StaticResource Panel.RowButton}" Click="OnAddLanguage"
                             AutomationProperties.AutomationId="AddLanguageButton">
-                        <StackPanel Orientation="Horizontal" Margin="26,12">
-                            <TextBlock Text="+" FontFamily="{StaticResource SpaceMono}" FontWeight="Bold"
+                        <StackPanel Orientation="Horizontal" Margin="20,10">
+                            <TextBlock Text="+" FontFamily="{StaticResource AppFont}" FontWeight="Bold"
                                        FontSize="15" Foreground="{DynamicResource PanelAccentBrush}"
                                        VerticalAlignment="Center" />
-                            <TextBlock Text="{loc:T panel.addLanguage}" FontFamily="{StaticResource SpaceMono}"
-                                       FontWeight="Bold" FontSize="14" Margin="9,0,0,0"
+                            <TextBlock Text="{loc:T panel.addLanguage}" FontFamily="{StaticResource AppFont}"
+                                       FontWeight="SemiBold" FontSize="14" Margin="9,0,0,0"
                                        Foreground="{DynamicResource PanelAccentBrush}"
                                        VerticalAlignment="Center" />
                         </StackPanel>
@@ -366,7 +355,7 @@
                                 <Path Style="{StaticResource PanelIcon.Stroke}"
                                       Data="{StaticResource Icon.Gear.Geometry}"
                                       Stroke="{DynamicResource PanelIcon2Brush}"
-                                      Width="26" Height="26" Margin="18,12" />
+                                      Width="20" Height="20" Margin="14,10" />
                             </Button>
                         </Border>
 
@@ -377,7 +366,7 @@
                                 <Path Style="{StaticResource PanelIcon.Stroke}"
                                       Data="{StaticResource Icon.Exit.Geometry}"
                                       Stroke="{DynamicResource PanelDangerBrush}"
-                                      Width="26" Height="26" Margin="18,12" />
+                                      Width="20" Height="20" Margin="14,10" />
                             </Button>
                         </Border>
                     </Grid>
@@ -405,15 +394,15 @@
                             </Button>
                             <TextBlock Grid.Column="1" Text="{loc:T catalog.title}" Margin="10,0,0,0"
                                        VerticalAlignment="Center"
-                                       FontFamily="{StaticResource SpaceMono}" FontWeight="Bold" FontSize="14"
+                                       FontFamily="{StaticResource AppFont}" FontWeight="SemiBold" FontSize="14"
                                        Foreground="{DynamicResource PanelTextBrush}" />
                         </Grid>
                     </Border>
 
                     <!-- Пустой каталог — штатное состояние (всё уже в наборе/постоянных). -->
                     <TextBlock x:Name="CatalogEmpty" Visibility="Collapsed"
-                               Text="{loc:T catalog.empty}" Margin="26,16" TextWrapping="Wrap"
-                               FontFamily="{StaticResource SpaceMono}" FontSize="12"
+                               Text="{loc:T catalog.empty}" Margin="20,12" TextWrapping="Wrap"
+                               FontFamily="{StaticResource AppFont}" FontSize="12"
                                Foreground="{DynamicResource PanelLabelBrush}" />
 
                     <ScrollViewer MaxHeight="360" VerticalScrollBarVisibility="Auto"
@@ -474,7 +463,7 @@
             <Border Background="Transparent" MouseLeftButtonDown="OnConfirmCatcher" />
 
             <Border HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="True"
-                    MinWidth="300" MaxWidth="380" Padding="24,22" CornerRadius="16"
+                    MinWidth="300" MaxWidth="380" Padding="24,22" CornerRadius="12"
                     Background="{DynamicResource PanelMenuBackgroundBrush}"
                     BorderBrush="{DynamicResource PanelBorderStrongBrush}" BorderThickness="1">
                 <Border.Effect>
@@ -482,11 +471,11 @@
                                       Opacity="0.6" Color="{DynamicResource PanelMenuShadowColor}" />
                 </Border.Effect>
                 <StackPanel>
-                    <TextBlock Text="{loc:T confirm.title}" FontFamily="{StaticResource SpaceMono}"
+                    <TextBlock Text="{loc:T confirm.title}" FontFamily="{StaticResource AppFont}"
                                FontWeight="Bold" FontSize="15"
                                Foreground="{DynamicResource PanelTextBrush}" Margin="0,0,0,12" />
                     <TextBlock x:Name="ConfirmText" TextWrapping="Wrap" LineHeight="21"
-                               FontFamily="{StaticResource SpaceMono}" FontSize="12.5"
+                               FontFamily="{StaticResource AppFont}" FontSize="12.5"
                                Foreground="{DynamicResource PanelMenuTextBrush}" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                         <Button Content="{loc:T confirm.cancel}" Style="{StaticResource Panel.DialogGhost}"
@@ -512,7 +501,7 @@
                  из-за чего текст рендерится «мыльным» (в отличие от главной карты, прибитой
                  к целым физ. пикселям якорем). Округление до пикселя возвращает чёткость. -->
             <Border HorizontalAlignment="Center" VerticalAlignment="Center" UseLayoutRounding="True"
-                    MinWidth="300" MaxWidth="380" Padding="24,22" CornerRadius="16"
+                    MinWidth="300" MaxWidth="380" Padding="24,22" CornerRadius="12"
                     Background="{DynamicResource PanelMenuBackgroundBrush}"
                     BorderBrush="{DynamicResource PanelBorderStrongBrush}" BorderThickness="1">
                 <Border.Effect>
@@ -520,7 +509,7 @@
                                       Opacity="0.6" Color="{DynamicResource PanelMenuShadowColor}" />
                 </Border.Effect>
                 <StackPanel>
-                    <TextBlock Text="{loc:T panel.settings.title}" FontFamily="{StaticResource SpaceMono}"
+                    <TextBlock Text="{loc:T panel.settings.title}" FontFamily="{StaticResource AppFont}"
                                FontWeight="Bold" FontSize="15"
                                Foreground="{DynamicResource PanelTextBrush}" Margin="0,0,0,18" />
 
@@ -529,7 +518,7 @@
                          PanelTheme.SetPreference (live-swap) + поле Theme в settings.json.
                          Начальный сегмент выставляет code-behind по PanelTheme.Preference. -->
                     <TextBlock Text="{loc:T panel.settings.theme}" Margin="0,0,0,8"
-                               FontFamily="{StaticResource SpaceMono}" FontWeight="Bold" FontSize="12"
+                               FontFamily="{StaticResource AppFont}" FontWeight="Bold" FontSize="12"
                                Foreground="{DynamicResource PanelMutedBrush}" />
                     <Border CornerRadius="10" Padding="3" Margin="0,0,0,18"
                             Background="{DynamicResource PanelTrackOffBrush}">
@@ -552,7 +541,7 @@
                          три языка — эндонимами (собственное имя). Выбор пишет Loc.ApplyPreference
                          (live) + поле Language; начальный пункт выставляет code-behind по Language. -->
                     <TextBlock Text="{loc:T panel.settings.language}" Margin="0,0,0,8"
-                               FontFamily="{StaticResource SpaceMono}" FontWeight="Bold" FontSize="12"
+                               FontFamily="{StaticResource AppFont}" FontWeight="Bold" FontSize="12"
                                Foreground="{DynamicResource PanelMutedBrush}" />
                     <ComboBox x:Name="LanguageSelect" Style="{StaticResource Panel.ComboBox}"
                               Margin="0,0,0,18" SelectionChanged="OnLanguagePick">
@@ -568,13 +557,13 @@
                         <CheckBox x:Name="LaunchOnStart" Style="{StaticResource Panel.CheckBox}"
                                   Click="OnAutostartClick" VerticalAlignment="Center" />
                         <TextBlock Text="{loc:T panel.settings.autostart}" Margin="12,0,0,0"
-                                   FontFamily="{StaticResource SpaceMono}" FontSize="13"
+                                   FontFamily="{StaticResource AppFont}" FontSize="13"
                                    Foreground="{DynamicResource PanelTextBrush}"
                                    VerticalAlignment="Center" />
                     </StackPanel>
                     <TextBlock Text="{loc:T panel.settings.autostartWarning}"
                                Margin="30,8,0,0" TextWrapping="Wrap"
-                               FontFamily="{StaticResource SpaceMono}" FontSize="11"
+                               FontFamily="{StaticResource AppFont}" FontSize="11"
                                Foreground="{DynamicResource PanelLabelBrush}" />
                 </StackPanel>
             </Border>
